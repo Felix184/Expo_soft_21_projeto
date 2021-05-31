@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Editor</title>
+		<link rel="stylesheet" href="css/styles.css"/>
+		<script src="js/functions.js"></script>
+	</head>
+
+	<body class="editor-container">
+
+		<!------------ Menu do Site ------------>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="editor.html">Editor</a></li>
+					<li><a href="sobre.html">Quem somos</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!------------ Conteúdo principal da página ------------>
+		<main>
+			<div class="file-upload-section" onclick="selectImage()">
+				<input id="foto-file" type="file">
+				Selecionar imagem
+			</div>
+
+			<div class="img-container">
+				<img id="foto-image" class="image">
+			</div>
+
+			<button class="btn-download" onclick="download()">Baixar imagem</button>
+		</main>
+		<script src="https://rawcdn.githack.com/kousik19/foto.js/d604b02c69b6f037875bc4a3050b85d776dc4659/foto.js"></script>
+	</body>
+</html>
