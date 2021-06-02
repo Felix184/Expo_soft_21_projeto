@@ -5,8 +5,8 @@ ________________________________________
 Integrantes do grupo: Matheus, Kaike, Hebert, Alberto.
 Data de entrega: 1 de Julho.
 
-Nome provisório do projeto:  “Meme Generator web”
-Descrição: Página da web que permite que os usuários gerem memes personalizados adicionando texto sobre uma imagem.
+Nome provisório do projeto:  “??? Generator web”
+Descrição: Página da web que permite que os usuários editem imagens.
  
 ________________________________________
 
@@ -17,29 +17,41 @@ Menu
 Home
 (Kaike)	Usuário terá um breve e completo tutorial de como usar o editor.
 
-Editor
-(Matheus) 	Usuário pode fazer upload de uma imagem que vai aparecer no canvas.
-(Hebert)	Usuário pode adicionar um texto no topo da imagem.
-(Hebert)	Usuário pode adicionar um texto na parte inferior da imagem.
-(Hebert)	Usuário pode selecionar a cor do texto.
-(Alberto)	Usuário pode selecionar o tamanho do texto.
-(Matheus)	Usuário pode exportar a imagem.
+Editor (Matheus)
+Usuário pode fazer upload/Dowload de uma imagem que vai aparecer no canvas.
+Usuário pode exportar a imagem.
+Usuário poderá colocar Filtro.
+Usuário pederá mudar o brilho.
+Usuário pederá mudar a escala.
+Usuário pederá cortar a imagem.
+Usuário pederá mudar o foco.
+Usuário pederá fazer efeito de espelho.
+Usuário pederá rotacionar a imagem.
 
+Quem somos (Alberto)
+Usuário verá o nome e uma foto dos colaboradores desse projeto.
 
-Quem somos
-(Alberto)Usuário verá o nome e uma foto dos colaboradores desse projeto.
- 
+Perfil (Hebert)
+
+   Galeria
+        Usuário poderá acessar/baixar imagem já salvas em sua galeria.
+        Usuário poderá editar novamente imagens já salvas.
+        
+Login/Cadastro (Hebert)
+Usuário pode fazer seu login/cadastro.
+
 Style
 (Todos) Personalização das páginas dentro das normas determinadas pelo grupo.
+
 
 ________________________________________
 
  
 Funcionalidades Bônus:
 (Funcionalidades interessantes para adicionar se tivermos com folga do prazo final.)
-Usuário pode selecionar a família da fonte.
-Usuário pode compartilhar nas redes sociais seu meme.
-Usuário pode editar memes já existentes.
+
+Usuário pode compartilhar nas redes sociais.
+
  
 Projetos de exemplo:
 https://imgflip.com/memegenerator
