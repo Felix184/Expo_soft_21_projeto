@@ -1,3 +1,4 @@
+/* Selecionar Imagem */
 var foto;
 window.onload = function() {
 	foto=new Foto(); 
@@ -5,6 +6,8 @@ window.onload = function() {
 function selectImage() {
 	document.getElementById("foto-file").click();
 }
+/* Baixar Imagem editada */
 function download() {
 	foto.export();
 }
+
