@@ -53,6 +53,6 @@ Funcionalidades Bônus:
 Usuário pode compartilhar nas redes sociais.
 
  
-Projetos de exemplo:
-https://imgflip.com/memegenerator
-https://codepen.io/ninivert/pen/BpLKRx
+!ATENÇÃO!
+
+ENTREGAS SEMANAIS _____DOMINGOS____23h59
