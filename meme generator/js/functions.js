@@ -29,14 +29,10 @@ function makeEmboss() {
 function makeSharp() {
 	foto.applySharpFilter();
 }
-
-function openColorpicker() {
-	document.getElementById("color-picker").click();
-}
-
-function makeColorize(elem) {
-	var color = elem.value;
+function makeVintage() {
+	var color = "#734F46";
 	foto.colorize(color);
+	foto.makeDark();
 }
 function openColorFilterPicker() {
 	document.getElementById("colorize-color-picker").click();
