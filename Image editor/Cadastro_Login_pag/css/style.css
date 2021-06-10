@@ -1,0 +1,59 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url("../img/img\ de\ login\ -\ teste3.jpg");
+    background-position: 50% 80%;
+    font-family: arial;
+}
+input{
+    display: block;
+    height: 55px;
+    width: 400px;
+    margin: 10px;
+    border-radius: 30px;
+    border: 1px solid black;
+    font-size: 16pt;
+    padding: 10px 20px;
+    border-color: #fff;
+    background-color: rgba(255,255,255,0.01);
+    outline: none;
+}
+div#corpo-form{
+    width: 420px;
+    margin: 15% auto 0px auto;
+}
+div#corpo-form h1{
+    text-align: center;
+    padding: 20px;
+}
+a{
+    color: black;
+    text-decoration: none; /*tira o underline que ja vem no "a" por padrão*/
+    text-align: center;
+    display: block;
+}
+a:hover{
+    text-decoration: underline; /*devolve o underline para o "a" por meio do hover*/
+}
+input[type=submit] {
+    background-color: #000000;
+    color: white;
+    border-color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+/*Para que funcione em outros navegadores*/
+::-webkit-input-placeholder{/*WebKit browsers*/
+    color: #fff;
+}
+:-moz-placeholder{/*Mozilla Firefox 4 to 18*/
+    color: #fff;
+    
+}
+:-moz-placeholder{/*Mozilla Firefox 19+ */
+    color: #fff;
+}
+:-moz-input-placeholder{
+    color:#fff;
+}
