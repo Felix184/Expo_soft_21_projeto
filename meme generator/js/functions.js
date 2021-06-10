@@ -1,4 +1,7 @@
 var foto;
+var indiceBright = 0;
+document.getElementById("myRange").disabled = true;
+var a = parseInt(document.getElementById("myRange").value);
 window.onload = function() {
 	foto=new Foto(); 
 }
@@ -11,11 +14,19 @@ function makeGrayScale() {
 }
 
 function makeBright() {
+	indiceBright += 1;
+	if (indiceBright > 5) { return; } 
 	foto.makeBright();
+	a += 10;
+	document.getElementById("myRange").value = a;
 }
 
 function makeDark() {
+	indiceBright -= 1;
+	if (indiceBright < -5) {return;}
 	foto.makeDark();
+	a -= 10;
+	document.getElementById("myRange").value = a;
 }
 
 function makeBlur() {
@@ -34,13 +45,9 @@ function makeVintage() {
 	foto.colorize(color);
 	foto.makeDark();
 }
-function openColorFilterPicker() {
-	document.getElementById("colorize-color-picker").click();
-}
-
-function applyColorFilter(elem) {
-	var color = elem.value;
-	foto.applyColorFilter(color);
+function resetImage() {
+	foto.resetImage();
+	document.getElementById("myRange").value = 50;
 }
 
 function makeTransparent() {

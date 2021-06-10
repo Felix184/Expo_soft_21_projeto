@@ -8,9 +8,10 @@
 }
 .editor-container {
 	background-color: #535675;
+	height: 100vh;
 }
 main {
-	height: 100vh;
+	height: inherit;
 }
 
 /* Paleta de cores do site 
@@ -51,13 +52,15 @@ li a:hover {
 /* ---------- Estilos do editor ---------- */
 .img-container {
 	display: block;
-	width: 60%;
-	height: 60%;
-	margin: 0 auto;
+	width: 55%;
+	height: 55vh;
+	margin-top: 2vh;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 0;
 	text-align: center;
-	margin-top: 30px;
-	margin-bottom: 30px;
-	 background-image: linear-gradient(to bottom right, #303675, black);
+	float: right;
+	background-image: linear-gradient(to bottom right, #303675, black);
 	box-shadow: 0px 1px 8px #000;
 }
 .image {
@@ -65,9 +68,10 @@ li a:hover {
 	max-height: 100%;
 }
 .file-upload-section {
-	margin: 0 25%;
+	margin: 0 27%;
+	float: right;
 	font-weight: 400;
-	padding: 14px 28px;
+	padding: 1vh 28px;
 	font-size: 20px;
 	color: white;
 	text-align: center;
@@ -82,7 +86,7 @@ li a:hover {
 }
 .btn-download {
 	display: block;
-	margin: 0 auto;
+	margin: 5vh auto;
 	font-weight: 400;
 	padding: 12px 38px;
 	font-size: 18px;
@@ -95,24 +99,82 @@ li a:hover {
 	background-color: black;
 }
 .btns-container {
-	display: flex;
-	flex-wrap: wrap;
-	margin-top: 15px;
-	padding: 20px 0;
-	align-items: baseline;
+	background-color: #1d1e29;
+	margin: 0 5%;
+	width: 30%;
+	height: 62.5vh;
+	padding: 15px;
+	border: 1px solid black;
+}
+.lbl-editor {
+	color: white;
+	font-size: 25px;
+	font-weight: 400;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+.lbl-editor:first-of-type {
+	margin-top: 0;
 }
 .btn-editor {
-	color: white;
-	width: 10%;
-	height: 35px;
+	color: #1d1e29;
+	padding: 1vh 3%;
+	text-align: center;
 	cursor: pointer;
-	border: none;
-	background-color: #1d1e29;
-	font-size: 18px;
+	background-color: white;
+	font-size: 16px;
 	font-weight: 400;
-	box-shadow: 0px 1px 8px #000;
-	margin-left: 20px;
+	margin-left: 10px;
+	border: 1px solid black;
 }
 .btn-editor:hover {
 	background-color: black;
+	color: white;
+}
+.btn-editor:first-of-type {
+	margin-left: 0;
+}
+.slidecontainer {
+	display: flex;
+	align-items: center;
+ /* Width of the outside container */
+}
+.slidecontainer button {
+	margin-left: 0;
+	font-size: 10px;
+}
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 20px; /* Specified height */
+  background: white; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px;
+	border-radius: 15%;
+  background: black; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
 }
