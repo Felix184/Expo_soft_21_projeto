@@ -50,23 +50,6 @@ li a:hover {
 
 
 /* ---------- Estilos do editor ---------- */
-.img-container {
-	display: block;
-	width: 55%;
-	height: 55vh;
-	margin-top: 2vh;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-bottom: 0;
-	text-align: center;
-	float: right;
-	background-image: linear-gradient(to bottom right, #303675, black);
-	box-shadow: 0px 1px 8px #000;
-}
-.image {
-	max-width: 100%;
-	max-height: 100%;
-}
 .file-upload-section {
 	margin: 0 27%;
 	float: right;
@@ -84,19 +67,22 @@ li a:hover {
 #foto-file {
 	display: none;
 }
-.btn-download {
+.img-container {
 	display: block;
-	margin: 5vh auto;
-	font-weight: 400;
-	padding: 12px 38px;
-	font-size: 18px;
-	color: white;
+	width: 55%;
+	height: 55vh;
+	margin-top: 2vh;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 0;
 	text-align: center;
-	background-color: #1d1e29; 
-	cursor: pointer;
+	float: right;
+	background-image: linear-gradient(to bottom right, #303675, black);
+	box-shadow: 0px 1px 8px #000;
 }
-.btn-download:hover {
-	background-color: black;
+.image {
+	max-width: 100%;
+	max-height: 100%;
 }
 .btns-container {
 	background-color: #1d1e29;
@@ -112,6 +98,10 @@ li a:hover {
 	font-weight: 400;
 	margin-top: 20px;
 	margin-bottom: 15px;
+}
+.lbl-sub {
+	font-size: 18px; 
+	margin: 2% 0;
 }
 .lbl-editor:first-of-type {
 	margin-top: 0;
@@ -131,50 +121,65 @@ li a:hover {
 	background-color: black;
 	color: white;
 }
-.btn-editor:first-of-type {
+.first-btn {
 	margin-left: 0;
 }
 .slidecontainer {
 	display: flex;
 	align-items: center;
- /* Width of the outside container */
+	margin-bottom: 5%;
 }
 .slidecontainer button {
 	margin-left: 0;
 	font-size: 10px;
 }
-/* The slider itself */
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 20px; /* Specified height */
-  background: white; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
+	-webkit-appearance: none;  
+	appearance: none;
+	width: 100%; 
+	height: 20px; 
+	background: white; 
+	outline: none; 
+	opacity: 0.7; 
+	-webkit-transition: .2s; 
+	transition: opacity .2s;
 }
-
-/* Mouse-over effects */
 .slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+	opacity: 1; 
 }
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px;
+	-webkit-appearance: none; 
+	appearance: none;
+	width: 25px; 
+	height: 25px;
 	border-radius: 15%;
-  background: black; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+	background: black; 
+	cursor: pointer; 
 }
-
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+	width: 25px; /* Set a specific slider handle width */
+	height: 25px; /* Slider handle height */
+	background: #04AA6D; /* Green background */
+	cursor: pointer; /* Cursor on hover */
+}
+.btn-download-section {
+	display: flex;
+}
+.btn-download {
+	display: block;
+	margin: 5vh 12.5%;
+	margin-right: 25%;
+	font-weight: 400;
+	padding: 12px 38px;
+	font-size: 18px;
+	color: white;
+	text-align: center;
+	background-color: #1d1e29; 
+	cursor: pointer;
+}
+.save-btn {
+	margin: 5vh 1%;
+}
+.btn-download:hover {
+	background-color: black;
 }

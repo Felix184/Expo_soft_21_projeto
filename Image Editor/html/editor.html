@@ -6,9 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Editor</title>
 		<link rel="stylesheet" href="../css/styles.css"/>
-		<link rel="stylesheet" href="../css/responsivo.css"/>
 		<script src="https://kit.fontawesome.com/deeb6da8f1.js" crossorigin="anonymous"></script>
-
 	</head>
 
 	<body class="editor-container">
@@ -30,36 +28,33 @@
 				<input id="foto-file" type="file" accept="image/*">
 				Selecionar imagem
 			</div>
-
 			<div class="img-container" id="img-container">
 				<img id="foto-image" class="image">
 			</div>
-
 			<section class="btns-container">
-			
 				<h1 class="lbl-editor">Editor :</h1>
-				
-				
-				<button class="btn-editor" onclick="makeGrayScale()">Efeito cinza</button>
-				<button class="btn-editor" onclick="makeBlur()">Efeito Blur</button>
-				<button class="btn-editor" onclick="makeEmboss()">Efeito Emboss</button><br/><br/>
-				<button class="btn-editor" onclick="makeSharp()">Efeito Sharp</button>
-				<h2 class="lbl-editor" style="font-size: 18px; margin: 2.5% 0;">Brilho :</h2>
+				<button class="btn-editor first-btn" onclick="makeGrayScale()">Efeito cinza</button>
+				<button class="btn-editor" onclick="makeBlur()">Efeito Borrão</button>
+				<button class="btn-editor" onclick="makeEmboss()">Efeito Cartoon</button><br/><br/>
+				<h2 class="lbl-editor lbl-sub">Brilho :</h2>
 				<div class="slidecontainer">
 					<button class="btn-editor" onclick="makeDark()"><i class="fas fa-minus"></i></button>
 					<input type="range" min="0" max="100" value="50" class="slider" id="myRange">
 					<button class="btn-editor" onclick="makeBright()"><i class="fas fa-plus"></i></button>
 				</div>
-				
-				
-				
-				
+				<button class="btn-editor first-btn" onclick="flipVertically()">Espelhar Imagem</button>
+				<button class="btn-editor" onclick="flipHorizontally()">Inverter Imagem</button>
 				<h1 class="lbl-editor">Filtros :</h1>
-				<button class="btn-editor" onclick="makeVintage()">Filtro Vintage</button> 
+				<button class="btn-editor first-btn" onclick="makeVintage()">Filtro Vintage</button>
+				<button class="btn-editor" onclick="makeSummer()">Filtro Verão</button>
+				<button class="btn-editor" onclick="makeWinter()">Filtro Inverno</button>
 			</section> 
 
-			<button class="btn-download" onclick="download()">Baixar imagem</button> 
+			<div class="btn-download-section">
 			<button class="btn-download" onclick="resetImage()">Resetar imagem</button>
+			<button class="btn-download save-btn" onclick="saveImage()">Salvar imagem</button>
+			<button class="btn-download save-btn" onclick="download()">Baixar imagem</button>
+			</div>
 		</main>
 		<script src="../js/functions.js"></script>
 		<script src="../js/foto.js"></script>

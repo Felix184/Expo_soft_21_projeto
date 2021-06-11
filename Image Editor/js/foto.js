@@ -159,11 +159,10 @@ class Foto {
 		this.previewImage();
 		this.convertedToGrayScale = !this.convertedToGrayScale;
 	}
-
 	/**
      * Bright 
      */
-	
+
 	makeBright() {
 		var modifiedImageData = this.imageData;
 		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
@@ -181,10 +180,6 @@ class Foto {
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.previewImage();
 	}
-teste() {
-	this.operationEditedCtx.putImageData(copiaImageData, 0, 0);
-		this.previewImage();
-}
 	/**
      * Dark
      */
@@ -284,6 +279,7 @@ teste() {
 			[1/9, 1/9, 1/9],
 			[1/9, 1/9, 1/9]
 		])
+		this.convertedToBlur = !this.convertedToBlur; 
 	}
 
 	/**
@@ -295,6 +291,7 @@ teste() {
 			[-1, 1, 1],
 			[0, 1, 2]
 		])
+		this.convertedToEmboss = !this.convertedToEmboss; 
 	}
 
 	/**
@@ -306,21 +303,13 @@ teste() {
 			[-1, 5, -1],
 			[0, -1, 0]
 		])
-	}
-
-	/**
-     * Unused for now
-     */
-	applyVintageFilter() {
-		this.colorFilter("#0000ff");
-		this.colorFilter("#0000ff");
-		this.colorFilter("#ec8900");
+		this.convertedToSharp = !this.convertedToSharp;
 	}
 
 	applyCustom() {
 		this.applyFilter([
-			[-1, -1, -1],
-			[2, 2, 2],
+			[2, -1, -1],
+			[1, 2, 1],
 			[-1, -1, -1]
 		])
 	}
@@ -568,14 +557,18 @@ teste() {
 
 		this.previewImage()
 	}
-	
+
 	// Função para resetar a imagem do canvas
 	resetImage() {
+		this.modifiedImageData = null;
 		this.image = null;
-		//this.imageData = null;
+		this.imageData = null;
 		this.imageWidth = 0; 
 		this.imageHeight = 0;
 		this.convertedToGrayScale = false;
+		this.convertedToBlur = false;
+		this.convertedToEmboss = false;
+		this.convertedToSharp = false;
 
 		this.previewImageElement = null;
 
@@ -603,7 +596,8 @@ teste() {
 		this.pickedR = null;
 		this.pickedG = null;
 		this.pickedB = null;
-		
+
+		this.previewImage();	
 		this.loadImage();
 	}
 }

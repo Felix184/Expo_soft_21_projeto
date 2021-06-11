@@ -1,16 +1,24 @@
 var foto;
 var indiceBright = 0;
+var color;
 document.getElementById("myRange").disabled = true;
 var a = parseInt(document.getElementById("myRange").value);
+
 window.onload = function() {
 	foto=new Foto(); 
 }
+
 function selectImage() {
 	document.getElementById("foto-file").click();
+	document.getElementById("myRange").value = 50;
 }
 
 function makeGrayScale() {
-	foto.grayscale();
+	if (foto.convertedToGrayScale == true) {
+		foto.resetImage();
+	} else {
+		foto.grayscale();
+	}
 }
 
 function makeBright() {
@@ -30,21 +38,46 @@ function makeDark() {
 }
 
 function makeBlur() {
-	foto.applyBlurFilter();
+	if (foto.convertedToBlur == true) {
+		foto.resetImage();
+	} else {
+		foto.applyBlurFilter();
+	}
 }
 
 function makeEmboss() {
-	foto.applyEmbossFilter();
+	if (foto.convertedToEmboss == true) {
+		foto.resetImage();
+	} else {
+		foto.applyEmbossFilter();
+	}
 }
 
 function makeSharp() {
-	foto.applySharpFilter();
+	if (foto.convertedToSharp == true) {
+		foto.resetImage();
+	} else {
+		foto.applySharpFilter();
+	}
 }
+
 function makeVintage() {
-	var color = "#734F46";
+	color = "#734F46";
+	//foto.applyCustom();
 	foto.colorize(color);
-	foto.makeDark();
+	//foto.makeDark();
 }
+
+function makeWinter() {
+	color = "#054f77";
+	foto.applyColorFilter(color);
+}
+function makeSummer() {
+	color = "#FFA600";
+	foto.applyCustom();
+	foto.applyColorFilter(color);
+}
+
 function resetImage() {
 	foto.resetImage();
 	document.getElementById("myRange").value = 50;
@@ -60,6 +93,10 @@ function crop() {
 
 function flipVertically() {
 	foto.flipVertically();
+}
+
+function flipHorizontally() {
+	foto.flipHorizontally();
 }
 
 function rotate(elem) {
