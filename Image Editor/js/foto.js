@@ -20,6 +20,9 @@ class Foto {
 		this.imageWidth = 0; 
 		this.imageHeight = 0;
 		this.convertedToGrayScale = false;
+		this.convertedToBlur = false;
+		this.convertedToEmboss = false;
+		this.convertedToSharp = false;
 
 		this.previewImageElement = null;
 

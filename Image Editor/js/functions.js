@@ -10,6 +10,7 @@ window.onload = function() {
 
 function selectImage() {
 	document.getElementById("foto-file").click();
+	a = 50;
 	document.getElementById("myRange").value = 50;
 }
 
@@ -23,7 +24,7 @@ function makeGrayScale() {
 
 function makeBright() {
 	indiceBright += 1;
-	if (indiceBright > 5) { return; } 
+	if (a > 100) { return; } 
 	foto.makeBright();
 	a += 10;
 	document.getElementById("myRange").value = a;
@@ -31,7 +32,7 @@ function makeBright() {
 
 function makeDark() {
 	indiceBright -= 1;
-	if (indiceBright < -5) {return;}
+	if (a < 1 ) {return;}
 	foto.makeDark();
 	a -= 10;
 	document.getElementById("myRange").value = a;
@@ -65,7 +66,7 @@ function makeVintage() {
 	color = "#734F46";
 	//foto.applyCustom();
 	foto.colorize(color);
-	//foto.makeDark();
+	foto.makeDark();
 }
 
 function makeWinter() {
@@ -73,13 +74,13 @@ function makeWinter() {
 	foto.applyColorFilter(color);
 }
 function makeSummer() {
-	color = "#FFA600";
-	foto.applyCustom();
+	color = "#CC6300";
 	foto.applyColorFilter(color);
 }
 
 function resetImage() {
 	foto.resetImage();
+	a = 50;
 	document.getElementById("myRange").value = 50;
 }
 
@@ -93,10 +94,14 @@ function crop() {
 
 function flipVertically() {
 	foto.flipVertically();
+	a = 50;
+	document.getElementById("myRange").value = 50;
 }
 
 function flipHorizontally() {
 	foto.flipHorizontally();
+	a = 50;
+	document.getElementById("myRange").value = 50;
 }
 
 function rotate(elem) {
