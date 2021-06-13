@@ -494,6 +494,7 @@ class Foto {
 		}
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
+		this.convertedToColor = !this.convertedToColor;
 		this.previewImage();
 	}
 
@@ -572,6 +573,7 @@ class Foto {
 		this.convertedToBlur = false;
 		this.convertedToEmboss = false;
 		this.convertedToSharp = false;
+		this.convertedToColor = false;
 
 		this.previewImageElement = null;
 

@@ -1,5 +1,4 @@
 var foto;
-var indiceBright = 0;
 var color;
 document.getElementById("myRange").disabled = true;
 var a = parseInt(document.getElementById("myRange").value);
@@ -17,13 +16,14 @@ function selectImage() {
 function makeGrayScale() {
 	if (foto.convertedToGrayScale == true) {
 		foto.resetImage();
+		a = 50;
+		document.getElementById("myRange").value = 50;
 	} else {
 		foto.grayscale();
 	}
 }
 
 function makeBright() {
-	indiceBright += 1;
 	if (a > 100) { return; } 
 	foto.makeBright();
 	a += 10;
@@ -31,7 +31,6 @@ function makeBright() {
 }
 
 function makeDark() {
-	indiceBright -= 1;
 	if (a < 1 ) {return;}
 	foto.makeDark();
 	a -= 10;
@@ -41,6 +40,8 @@ function makeDark() {
 function makeBlur() {
 	if (foto.convertedToBlur == true) {
 		foto.resetImage();
+		a = 50;
+		document.getElementById("myRange").value = 50;
 	} else {
 		foto.applyBlurFilter();
 	}
@@ -49,6 +50,8 @@ function makeBlur() {
 function makeEmboss() {
 	if (foto.convertedToEmboss == true) {
 		foto.resetImage();
+		a = 50;
+		document.getElementById("myRange").value = 50;
 	} else {
 		foto.applyEmbossFilter();
 	}
@@ -57,25 +60,41 @@ function makeEmboss() {
 function makeSharp() {
 	if (foto.convertedToSharp == true) {
 		foto.resetImage();
+		a = 50;
+		document.getElementById("myRange").value = 50;
 	} else {
 		foto.applySharpFilter();
 	}
 }
 
 function makeVintage() {
-	color = "#734F46";
-	//foto.applyCustom();
-	foto.colorize(color);
-	foto.makeDark();
+	color = "#5C3C34";
+	if (foto.convertedToColor == true) {
+		foto.resetImage();
+		a = 50;
+		document.getElementById("myRange").value = 50;
+		foto.applyColorFilter(color);
+	} else {foto.applyColorFilter(color);}
 }
 
 function makeWinter() {
 	color = "#054f77";
-	foto.applyColorFilter(color);
+	if (foto.convertedToColor == true) {
+		foto.resetImage();
+		a = 50;
+		document.getElementById("myRange").value = 50;
+		foto.applyColorFilter(color);
+	} else {foto.applyColorFilter(color);}
 }
+
 function makeSummer() {
-	color = "#CC6300";
-	foto.applyColorFilter(color);
+	color = "#CF6700";
+	if (foto.convertedToColor == true) {
+		foto.resetImage();
+		a = 50;
+		document.getElementById("myRange").value = 50;
+		foto.applyColorFilter(color);
+	} else {foto.applyColorFilter(color);}
 }
 
 function resetImage() {
@@ -94,12 +113,14 @@ function crop() {
 
 function flipVertically() {
 	foto.flipVertically();
+	foto.convertedToGrayScale = false;
 	a = 50;
 	document.getElementById("myRange").value = 50;
 }
 
 function flipHorizontally() {
 	foto.flipHorizontally();
+	foto.convertedToGrayScale = false;
 	a = 50;
 	document.getElementById("myRange").value = 50;
 }

@@ -157,18 +157,19 @@ li a:hover {
 	cursor: pointer; 
 }
 .slider::-moz-range-thumb {
-	width: 25px; /* Set a specific slider handle width */
-	height: 25px; /* Slider handle height */
-	background: #04AA6D; /* Green background */
-	cursor: pointer; /* Cursor on hover */
+	width: 25px; 
+	height: 25px; 
+	background: #04AA6D; 
+	cursor: pointer; 
 }
 .btn-download-section {
 	display: flex;
+	margin-top: 5vh;
 }
 .btn-download {
 	display: block;
-	margin: 5vh 12.5%;
-	margin-right: 25%;
+	margin: 0 25% 0 12.5%;
+
 	font-weight: 400;
 	padding: 12px 38px;
 	font-size: 18px;
@@ -178,7 +179,7 @@ li a:hover {
 	cursor: pointer;
 }
 .save-btn {
-	margin: 5vh 1%;
+	margin: 0 2% 0 0;
 }
 .btn-download:hover {
 	background-color: black;
