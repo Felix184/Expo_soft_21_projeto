@@ -57,6 +57,22 @@ li a:hover {
 	background-color: black;
 }
 
+/* ---------- Rodapé footer ---------- */
+
+footer {
+	bottom: 0%;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+	background-color: #1d1e29;
+	color: white;
+	text-align: left;
+	padding: 10px;
+	font-size: 14px;
+}
+footer p {
+	text-align: center;
+}
 
 /* ---------- Estilos do editor ---------- */
 
@@ -195,8 +211,12 @@ li a:hover {
 	background-color: black;
 }
 
+/*---------------------- Pagina Quem somos (Alberto)---------------------- */
 
-/*---------------------- Quem somos (Alberto)---------------------- */
+#sobre_body {
+	background-color: #535675;
+	text-align: center;
+}
 
 #sobre_body h1 {
 	text-align: center;
@@ -204,30 +224,59 @@ li a:hover {
 	font-size: 45px;
 }
 
+#txt_sobre {
+	color: whitesmoke;
+	font-size: 26px;
+}
+
 #container_sobre {
-	background-color: #535675;
 	width: 100%;
 	height: 100%;
-	padding: 2% auto;
+	padding: 0% auto;
 	display: inline-flex;
-	flex-wrap: wrap;
-	padding-left: 10%;
-	margin-bottom: 50px;
-	box-shadow: 0px 1px 8px #000;
+	flex-wrap: nowrap;
+	box-sizing: border-box;
 }
 
 #foto_sobre {
-	width: 40%;
-	height: 5%;
-	border-radius: 5% 5% 30% 30%;
-	/*box-shadow: #1D1E29 15px 12px;*/
-	margin-bottom: 50px;
-	box-shadow: 0px 1px 8px #000;
+	width: 310px;
+	height: 160px;
+	border-radius: 15% 15% 15% 15%;
+	margin: 0% auto;
+	box-shadow: 0px 3px 9px #000;
 	background-color: #1B1E42;
-	font-size: 50px;
+	font-size: 30px;
 	text-align: center;
 	color: whitesmoke;
-	margin: 2%;
+	padding: .5%;
+}
+
+#foto_sobre :hover {
+	border-radius: 15% 15% 15% 15%;
+	box-shadow: 2px 4px 12px #000;
+	background-color: #1B1E42;
+	color: whitesmoke;
+	transform: scaleX(1.1) scaleY(1.1);
+	/* aumentar botão ao passar em cima*/
+	font-size: 31px;
+	transition-duration: .2s;
+}
+
+#foto_sobre :visited {
+	color: whitesmoke;
+	text-decoration: none;
+}
+
+#foto_sobre :active {
+	color: whitesmoke;
+	text-decoration: none;
+	border: solid #1d1e29;
+	border-radius: 15% 15% 15% 15%;
+}
+
+#foto_sobre :link {
+	color: whitesmoke;
+	text-decoration: none;
 }
 
 #foto_1,
@@ -236,7 +285,126 @@ li a:hover {
 #foto_4 {
 	border-style: solid whitesmoke;
 	border-radius: 50%;
-	height: 150px;
-	padding: 2%;
-	display: flexbox;
+	height: 140px;
+	padding: 0% auto;
+	border: solid #1d1e29;
+	pointer-events: none;
+	/*desabilita ação de mousa em cima da imagem, somente na div*/
 }
+
+/* ---------- Estilos da Home ---------- */
+
+.home-container {
+	background-color: #535675; 
+}
+.mySlides {
+	display: none
+}
+.home-container img {
+	vertical-align: middle;
+}
+.home-container h1{
+	text-align: center;
+	font-size: 25px;
+	color: white;
+}
+.home-container h2 {
+	text-align: center;
+	font-size: 18px;
+	color: white;
+}
+/* Slideshow container */
+.slideshow-container {
+	width: 980px;
+	height: 436px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 65%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+/* Posição do "botão-proximo" */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+	color: #000000;
+	font-size: 20px;
+	padding: 5px 12px;
+	position:absolute;
+	bottom: 15px;
+	bottom: 15px;
+	width: 100%;
+	text-align:center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+	color: #1d1e29;
+	font-size: 20px;
+	padding: 15px 12px;
+	position: relative;
+	top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+	background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+@keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+	.prev, .next,.text {font-size: 14px}
+}
+
+/* -------------------- */

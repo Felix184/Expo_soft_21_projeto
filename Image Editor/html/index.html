@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="../css/styles.css"/>
 		<script src="https://kit.fontawesome.com/deeb6da8f1.js" crossorigin="anonymous"></script>
 	</head>
-	<body>
+	<body class="home-container">
 		<!-- Menu do Site -->
 		<header>
 			<nav>
@@ -18,5 +18,81 @@
 				</ul>
 			</nav>
 		</header>
+
+		<!-- Linhas de Texto -->
+
+		<h1>Seja Bem Vindo ao nosso editor de imagem</h1>
+		<br/> <br/> 
+		<h2> Antes de utillizar o editor siga aqui algumas instruções para um bom funcionamento </h2>
+		<br/> 
+
+		<!-- Slideshow -->
+		<div class="slideshow-container">
+
+			<!-- Full-width images with number and caption text -->
+			<div class="mySlides fade">
+				<div class="numbertext">Passo 1/3</div>
+				<img src="../img/TesteSlide.PNG" style="width:100%">
+				<div class="text">Ao se localizar na página Home , no menu superior clique em "Editor"</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">Passo 2/3</div>
+				<img src="../img/TesteSlide2.PNG" style="width:100%">
+				<div class="text">Selecione a imagem que deseja editar<br/>
+					Realize as edições assim que for realizado a importação da imagem escolhida</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">Passo 3/3</div>
+				<img src="../img/TesteSlide3.PNG" style="width:100%">
+				<div class="text">Realize o download da imagem editada<br/> Faça a devida exportação da mesma para onde deseja </div>
+			</div>
+
+			<!-- Botoes proximo e voltar -->
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
+		<br>
+
+		<!-- The dots/circles -->
+		<div style="text-align:center">
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+		</div>
+		<footer>
+			<p>&copy 2021 Fasthorse.editor - Escola tecnica Alcina Dantas Feijão</p>
+		</footer>
 	</body>
+	<script>
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		// Next/previous controls
+		function plusSlides(n) {
+			showSlides(slideIndex += n);
+		}
+
+		// Thumbnail image controls
+		function currentSlide(n) {
+			showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			if (n > slides.length) {slideIndex = 1}
+			if (n < 1) {slideIndex = slides.length}
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex-1].style.display = "block";
+			dots[slideIndex-1].className += " active";
+		} 
+	</script>
 </html>
