@@ -63,12 +63,16 @@ li a:hover {
 footer {
     bottom: 0%;
     width: 100%;
-    position: absolute;
+    position: fixed;
+	  z-index: 1;
     background-color: #1d1e29;
     color: white;
-    text-align: center;
+    text-align: left;
     padding: 10px;
     font-size: 14px;
+}
+footer p {
+	text-align: center;
 }
 
 
@@ -129,7 +133,7 @@ footer {
     text-align: center;
 }
 
-h1 {
+#sobre_body h1 {
     text-align: center;
     color: whitesmoke;
     font-size: 45px;
