@@ -8,6 +8,13 @@ Nome projeto: Fast Horse Editor .
 
 Descrição: Página da web que permite que os usuários editem imagens.
 ________________________________________
+Meta Semanal (10/06 – 15/06)
+•	Criar rodapé para todas as páginas - Alberto
+•	Criar logotipo da empresa - Kaike
+•	Criar pagina do Cadastro - Hebert
+•	Continuar a editar pagina Home - Kaike
+•	Continuar editar editor - Matheus
+________________________________________
 Funcionalidades principais:
 •	Menu (Matheus):
 Linkando as páginas criadas.
@@ -29,6 +36,3 @@ Usuário pode fazer seu login/cadastro.
 •	Style (Todos) Personalização das páginas dentro das normas determinadas pelo grupo.
 ________________________________________
 
-!ATENÇÃO!
-
-ENTREGAS SEMANAIS _____DOMINGOS____23h59
