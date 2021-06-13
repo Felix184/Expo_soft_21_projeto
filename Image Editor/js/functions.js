@@ -114,6 +114,9 @@ function crop() {
 function flipVertically() {
 	foto.flipVertically();
 	foto.convertedToGrayScale = false;
+	foto.convertedToBlur = false;
+	foto.convertedToEmboss = false;
+	foto.convertedToSharp = false;
 	a = 50;
 	document.getElementById("myRange").value = 50;
 }
@@ -121,6 +124,9 @@ function flipVertically() {
 function flipHorizontally() {
 	foto.flipHorizontally();
 	foto.convertedToGrayScale = false;
+	foto.convertedToBlur = false;
+	foto.convertedToEmboss = false;
+	foto.convertedToSharp = false;
 	a = 50;
 	document.getElementById("myRange").value = 50;
 }
