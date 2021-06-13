@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Editor</title>
 		<link rel="stylesheet" href="../css/styles.css"/>
-		<script src="js/functions.js"></script>
+		<script src="https://kit.fontawesome.com/deeb6da8f1.js" crossorigin="anonymous"></script>
 	</head>
 
 	<body class="editor-container">
@@ -16,8 +16,8 @@
 			<nav>
 				<ul>
 					<li><a href="index.html">Home</a></li>
-					<li><a href="editor.html">Editor</a></li>
-					<li><a href="sobre.html">Quem somos</a></li>
+					<li><a href="editor.html"><i class="fas fa-edit"></i> Editor</a></li>
+					<li><a href="sobre.html"><i class="fas fa-users"></i> Quem somos</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -25,16 +25,39 @@
 		<!------------ Conteúdo principal da página ------------>
 		<main>
 			<div class="file-upload-section" onclick="selectImage()">
-				<input id="foto-file" type="file">
+				<input id="foto-file" type="file" accept="image/*">
 				Selecionar imagem
 			</div>
-
-			<div class="img-container">
+			<div class="img-container" id="img-container">
 				<img id="foto-image" class="image">
 			</div>
+			<section class="btns-container">
+				<h1 class="lbl-editor">Editor :</h1>
+				<button class="btn-editor first-btn" onclick="makeGrayScale()">Efeito cinza</button>
+				<button class="btn-editor" onclick="makeBlur()" id="blur-effect">Efeito Borrão</button>
+				<button class="btn-editor" onclick="makeEmboss()">Efeito Cartoon</button><br/><br/>
+				<h2 class="lbl-editor lbl-sub">Brilho :</h2>
+				<div class="slidecontainer">
+					<button class="btn-editor" onclick="makeDark()"><i class="fas fa-minus"></i></button>
+					<input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+					<button class="btn-editor" onclick="makeBright()"><i class="fas fa-plus"></i></button>
+				</div>
+				<button class="btn-editor first-btn" onclick="flipVertically()">Espelhar Imagem</button>
+				<button class="btn-editor" onclick="flipHorizontally()">Inverter Imagem</button><br/><br/>
+				<button class="btn-editor first-btn" onclick="crop()">Cortar Imagem</button>
+				<h1 class="lbl-editor">Filtros :</h1>
+				<button class="btn-editor first-btn" onclick="makeVintage()">Filtro Vintage</button>
+				<button class="btn-editor" onclick="makeSummer()">Filtro Verão</button>
+				<button class="btn-editor" onclick="makeWinter()">Filtro Inverno</button>
+			</section> 
 
-			<button class="btn-download" onclick="download()">Baixar imagem</button>
+			<div class="btn-download-section">
+				<button class="btn-download" onclick="resetImage()">Resetar imagem</button>
+				<button class="btn-download save-btn" onclick="saveImage()">Salvar imagem</button>
+				<button class="btn-download save-btn" onclick="download()">Baixar imagem</button>
+			</div>
 		</main>
-		<script src="https://rawcdn.githack.com/kousik19/foto.js/d604b02c69b6f037875bc4a3050b85d776dc4659/foto.js"></script>
+		<script src="../js/functions.js"></script>
+		<script src="../js/foto.js"></script>
 	</body>
 </html>
