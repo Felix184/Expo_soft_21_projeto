@@ -23,6 +23,9 @@ class Foto {
 		this.convertedToBlur = false;
 		this.convertedToEmboss = false;
 		this.convertedToSharp = false;
+		this.convertedToVintage = false;
+		this.convertedToSummer = false;
+		this.convertedToWinter = false;
 
 		this.previewImageElement = null;
 
@@ -160,7 +163,7 @@ class Foto {
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
 		this.previewImage();
-		this.convertedToGrayScale = !this.convertedToGrayScale;
+		this.convertedToGrayScale = true;
 	}
 	/**
      * Bright 
@@ -282,7 +285,7 @@ class Foto {
 			[1/9, 1/9, 1/9],
 			[1/9, 1/9, 1/9]
 		])
-		this.convertedToBlur = !this.convertedToBlur; 
+		this.convertedToBlur = true; 
 	}
 
 	/**
@@ -294,7 +297,7 @@ class Foto {
 			[-1, 1, 1],
 			[0, 1, 2]
 		])
-		this.convertedToEmboss = !this.convertedToEmboss; 
+		this.convertedToEmboss = true; 
 	}
 
 	/**
@@ -306,7 +309,7 @@ class Foto {
 			[-1, 5, -1],
 			[0, -1, 0]
 		])
-		this.convertedToSharp = !this.convertedToSharp;
+		this.convertedToSharp = true;
 	}
 
 	applyCustom() {
@@ -494,10 +497,63 @@ class Foto {
 		}
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
-		this.convertedToColor = !this.convertedToColor;
 		this.previewImage();
 	}
+  applyVintageFilter(color) {
+		color = "#734F46";
+		var r = parseInt(color.substr(1,2), 16) * .5;
+		var g = parseInt(color.substr(3,2), 16) * .5;
+		var b = parseInt(color.substr(5,2), 16) * .5;
 
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+
+			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
+			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
+			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
+		this.convertedToVintage = true;
+		this.previewImage();
+	}
+	applyWinterFilter(color) {
+		color = "#054f77";
+		var r = parseInt(color.substr(1,2), 16) * .5;
+		var g = parseInt(color.substr(3,2), 16) * .5;
+		var b = parseInt(color.substr(5,2), 16) * .5;
+
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+
+			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
+			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
+			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
+		this.convertedToWinter = true;
+		this.previewImage();
+	}
+	applySummerFilter(color) {
+		color = "#fd821";
+		var r = parseInt(color.substr(1,2), 16) * .5;
+		var g = parseInt(color.substr(3,2), 16) * .5;
+		var b = parseInt(color.substr(5,2), 16) * .5;
+
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+
+			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
+			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
+			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
+		this.convertedToSummer = true;
+		this.previewImage();
+	}
+	
 	colorize(color) {
 		var r = parseInt(color.substr(1,2), 16) * .5;
 		var g = parseInt(color.substr(3,2), 16) * .5;
@@ -573,7 +629,9 @@ class Foto {
 		this.convertedToBlur = false;
 		this.convertedToEmboss = false;
 		this.convertedToSharp = false;
-		this.convertedToColor = false;
+		this.convertedToVintage = false;
+		this.convertedToSummer = false;
+		this.convertedToWinter = false;
 
 		this.previewImageElement = null;
 

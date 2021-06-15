@@ -24,6 +24,7 @@
 
 		<!------------ Conteúdo principal da página ------------>
 		<main>
+
 			<div class="file-upload-section" onclick="selectImage()">
 				<input id="foto-file" type="file" accept="image/*">
 				Selecionar imagem
@@ -31,31 +32,39 @@
 			<div class="img-container" id="img-container">
 				<img id="foto-image" class="image">
 			</div>
+
 			<section class="btns-container">
-				<h1 class="lbl-editor">Editor :</h1>
-				<button class="btn-editor first-btn" onclick="makeGrayScale()">Efeito cinza</button>
-				<button class="btn-editor" onclick="makeBlur()" id="blur-effect">Efeito Borrão</button>
-				<button class="btn-editor" onclick="makeEmboss()">Efeito Cartoon</button><br/><br/>
+				<h1 class="lbl-editor lbl-1">Editor :</h1>
+				<button class="btn-editor first-btn" onclick="flipVertically()">Espelhar Imagem</button>
+				<button class="btn-editor" onclick="flipHorizontally()">Inverter Imagem</button>
+				<button class="btn-editor" onclick="crop()">Cortar</button>
+				
+
 				<h2 class="lbl-editor lbl-sub">Brilho :</h2>
 				<div class="slidecontainer">
 					<button class="btn-editor" onclick="makeDark()"><i class="fas fa-minus"></i></button>
 					<input type="range" min="0" max="100" value="50" class="slider" id="myRange">
 					<button class="btn-editor" onclick="makeBright()"><i class="fas fa-plus"></i></button>
 				</div>
-				<button class="btn-editor first-btn" onclick="flipVertically()">Espelhar Imagem</button>
-				<button class="btn-editor" onclick="flipHorizontally()">Inverter Imagem</button><br/><br/>
-				<button class="btn-editor first-btn" onclick="crop()">Cortar Imagem</button>
+
+				<button class="btn-editor first-btn" onclick="makeGrayScale()" id="gray-effect">Escala cinza</button>
+				<button class="btn-editor" onclick="makeBlur()" id="blur-effect">Desfocar Imagem</button>
+				<button class="btn-editor" onclick="makeSharp()" id="sharp-effect">Nitidez</button><br/>
+
 				<h1 class="lbl-editor">Filtros :</h1>
-				<button class="btn-editor first-btn" onclick="makeVintage()">Filtro Vintage</button>
-				<button class="btn-editor" onclick="makeSummer()">Filtro Verão</button>
-				<button class="btn-editor" onclick="makeWinter()">Filtro Inverno</button>
+				<button class="btn-editor first-btn" onclick="makeVintage()" id="vintage-effect">Filtro Vintage</button>
+				<button class="btn-editor" onclick="makeSummer()" id="summer-effect">Filtro Verão</button>
+				<button class="btn-editor" onclick="makeWinter()" id="winter-effect">Filtro Inverno</button>
+				<button class="btn-editor filter-btn" onclick="makeEmboss()" id="emboss-effect">Filtro Cartoon</button>
+				<button class="btn-editor" onclick="">Filtro ????</button>
 			</section> 
 
 			<div class="btn-download-section">
-				<button class="btn-download" onclick="resetImage()">Resetar imagem</button>
-				<button class="btn-download save-btn" onclick="saveImage()">Salvar imagem</button>
-				<button class="btn-download save-btn" onclick="download()">Baixar imagem</button>
+				<button class="btn-download" onclick="resetImage()"><i class="fas fa-undo"></i> Resetar imagem</button>
+				<button class="btn-download save-btn" onclick="saveImage()"><i class="fas fa-share-square"></i> Salvar imagem</button>
+				<button class="btn-download save-btn" onclick="download()"><i class="fas fa-download"></i> Baixar imagem</button>
 			</div>
+
 		</main>
 		<footer>
 			<p>&copy 2021 Fasthorse.editor - Escola tecnica Alcina Dantas Feijão</p>

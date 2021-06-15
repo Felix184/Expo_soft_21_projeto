@@ -77,10 +77,10 @@ footer p {
 /* ---------- Estilos do editor ---------- */
 
 .file-upload-section {
-	margin: 0 27%;
+	margin: 0 25% 0 0;
 	float: right;
 	font-weight: 400;
-	padding: 1vh 28px;
+	padding: 1vh 30px;
 	font-size: 20px;
 	color: white;
 	text-align: center;
@@ -122,14 +122,14 @@ footer p {
 	color: white;
 	font-size: 25px;
 	font-weight: 400;
-	margin-top: 20px;
-	margin-bottom: 15px;
+	margin-top: 5%;
+	margin-bottom: 4%;
 }
 .lbl-sub {
 	font-size: 18px; 
-	margin: 2% 0;
+	margin: 4% 0 1.5% 0;
 }
-.lbl-editor:first-of-type {
+.lbl-1 {
 	margin-top: 0;
 }
 .btn-editor {
@@ -140,7 +140,7 @@ footer p {
 	background-color: white;
 	font-size: 16px;
 	font-weight: 400;
-	margin-left: 10px;
+	margin-left: 8px;
 	border: 1px solid black;
 }
 .btn-editor:hover {
@@ -149,6 +149,10 @@ footer p {
 }
 .first-btn {
 	margin-left: 0;
+}
+.filter-btn {
+	margin-top: 3%;
+	margin-left: 16%;
 }
 .slidecontainer {
 	display: flex;
@@ -194,18 +198,18 @@ footer p {
 }
 .btn-download {
 	display: block;
-	margin: 0 25% 0 12.5%;
-
+	margin: 0 24% 0 12%;
 	font-weight: 400;
 	padding: 12px 38px;
 	font-size: 18px;
 	color: white;
+	font-weight: 400;
 	text-align: center;
 	background-color: #1d1e29; 
 	cursor: pointer;
 }
 .save-btn {
-	margin: 0 2% 0 0;
+	margin: 0 1.5% 0 0;
 }
 .btn-download:hover {
 	background-color: black;
