@@ -1,6 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-family: "Times New Roman", Times, serif;
 }
 body{
     background-image: linear-gradient(to bottom right, #303675, black);
@@ -22,6 +23,7 @@ input{
     border-color: #fff;
     background-color: rgba(255,255,255,0.01);
     outline: none;
+    color: #fff;
 }
 
 .corpo-form{
@@ -40,6 +42,7 @@ a{
     text-decoration: none; /*tira o underline que ja vem no "a" por padrão*/
     text-align: center;
     display: block;
+    
 }
 a:hover{
     text-decoration: underline; /*devolve o underline para o "a" por meio do hover*/
@@ -69,14 +72,16 @@ input[type=submit] {
     margin: 10px auto;
     padding: 10px;
     background-color: rgba(50,205,50,.3);
-    border: 1px solid rgb(34,139,34);
+    border: 1px solid rgb(31, 212, 31);
     display: block;
+    color: rgb(10, 233, 10);
 }
 .msg-erro{
     width: 400px;
     margin: 10px auto;
     padding: 10px;
-    background-color: rgba(250,128,114,.3);
-    border: 1px solid rgb(165,42,42);
+    background-color: rgba(56, 6, 0, 0.3);
+    border: 1px solid rgb(110, 0, 0);
     display: block;
+    color: rgb(207, 1, 1);
 }

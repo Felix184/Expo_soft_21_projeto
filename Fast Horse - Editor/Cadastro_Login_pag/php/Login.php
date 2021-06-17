@@ -36,7 +36,7 @@
                     
                     if($u->msgErro == ""){
                         if($u->logar($email, $senha)){
-                            header("location: AreaPrivada-Perfil.php");
+                            header("location: Editor(privado).php");
                         }else{
                             ?>
                             <div class="msg-erro">
@@ -56,7 +56,7 @@
                 }else{
                     ?>
                     <div class="msg-erro">
-                        <?php echo "preencha todos os campos!"; ?>
+                        <?php echo "Preencha todos os campos!"; ?>
                     </div>
                     <?php
                     
