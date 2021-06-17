@@ -15,14 +15,20 @@
         <div class="corpo-form">
             <h1>Cadastrar</h1>
             <form method="POST" action="">
-                <input type="text" name="nome" placeholder="Nome Completo" maxlength="30">
-                <input type="email" name="email" placeholder="E-mail" maxlength="40">
-                <input type="password" name="senha" placeholder="Senha" maxlength="32">
-                <input type="password" name="confsenha" placeholder="Confirmação de Senha" maxlength="15">
+                <input type="text" required min="3" name="nome"pattern="([A-Z À-Ú]{1})([a-z à-ú]{3,})" 
+                placeholder= "Nome Completo"  title="Digite seu primeiro nome. Exemplo: Ana" maxlength="30">
+                <input type="email" name="email" placeholder="E-mail" title="Digite um e-mail" maxlength="40">
+                <input type="password" id="pwd" name="senha" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Senha" maxlength="32">
+                <fieldset>
+                    <input type="password" id="pwd2" name="confsenha" placeholder="Confirmação de Senha" maxlength="15">
+                    <input type="checkbox" onclick="mostrarOcultarSenha()">
+                </fieldset>
                 <input type="submit" value="Cadastrar">
                 <a href="Login.php">Já Possue cadastro?<strong> Entre por aqui!</strong></a>
             </form>
         </div>
+
+        <script type="text/javascript" src="../js/script-Log_Cad.js"></script>
 
         <?php
         //verificar se clicou no botao

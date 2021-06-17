@@ -11,6 +11,7 @@
     </head>
     
     <body>
+    
          <!--<div class="logo">         Aqui esta a imagem de logo que eu estava testando 
             <img src="../img/LogoFastHorse-removebg-preview.png">
         </div>-->
@@ -18,12 +19,17 @@
             <h1>Entrar</h1>
             <form method="POST" action="">
                 <input type="email" name="email" placeholder="E-mail">
-                <input type="password" name="senha" placeholder="Senha">
+                 <fieldset>
+                    <input type="password" id="pwd" name="senha" placeholder="Senha">
+                    <input type="checkbox" onclick="mostrarOcultarSenha()">
+                </fieldset>
                 <input type="submit" value="Acessar">
+                
                 <a href="Cadastro.php">Ainda não se cadastrou?<strong> Cadastre-se aqui!</strong></a>
             </form>
+            
         </div>
-
+        <script type="text/javascript" src="../js/script-Log_Cad.js"></script>
         <?php
             //verificar se clicou no botao
             if (isset($_POST['email'])){
