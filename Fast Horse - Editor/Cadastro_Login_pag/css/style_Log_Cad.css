@@ -3,10 +3,13 @@
     padding: 0px;
 }
 body{
-    background-image: url("../img/img\ de\ login\ -\ teste3.jpg");
+    background-image: linear-gradient(to bottom right, #303675, black);
+
+    /*background-image: url("../img/img\ de\ login\ -\ teste3.jpg");
     background-position: 40% 90%;
-    font-family: arial;
+    font-family: arial;*/
 }
+
 input{
     display: block;
     height: 55px;
@@ -20,6 +23,7 @@ input{
     background-color: rgba(255,255,255,0.01);
     outline: none;
 }
+
 .corpo-form{
     width: 420px;
     margin: 13% auto 0px auto;
@@ -28,8 +32,11 @@ input{
     text-align: center;
     padding: 20px;
 }
+h1{
+    color: #fff;
+}
 a{
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none; /*tira o underline que ja vem no "a" por padrão*/
     text-align: center;
     display: block;
@@ -63,6 +70,7 @@ input[type=submit] {
     padding: 10px;
     background-color: rgba(50,205,50,.3);
     border: 1px solid rgb(34,139,34);
+    display: block;
 }
 .msg-erro{
     width: 400px;
@@ -70,4 +78,5 @@ input[type=submit] {
     padding: 10px;
     background-color: rgba(250,128,114,.3);
     border: 1px solid rgb(165,42,42);
+    display: block;
 }

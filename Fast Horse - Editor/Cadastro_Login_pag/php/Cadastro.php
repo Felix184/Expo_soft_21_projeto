@@ -9,15 +9,18 @@
         <link rel="stylesheet" href="../css/style_Log_Cad.css">
     </head>
     <body>
+        <!--<div class="logo">         Aqui esta a imagem de logo que eu estava testando
+            <img src="../img/LogoFastHorse-removebg-preview.png">
+        </div>-->
         <div class="corpo-form">
-            <h1>Cadastro</h1>
+            <h1>Cadastrar</h1>
             <form method="POST" action="">
                 <input type="text" name="nome" placeholder="Nome Completo" maxlength="30">
-                <input type="email" name="email" placeholder="Usuário" maxlength="40">
+                <input type="email" name="email" placeholder="E-mail" maxlength="40">
                 <input type="password" name="senha" placeholder="Senha" maxlength="32">
                 <input type="password" name="confsenha" placeholder="Confirmação de Senha" maxlength="15">
                 <input type="submit" value="Cadastrar">
-                <a href="Login.php">Já Possue cadastro?<strong> Faça seu login aqui!</strong></a>
+                <a href="Login.php">Já Possue cadastro?<strong> Entre por aqui!</strong></a>
             </form>
         </div>
 
@@ -29,7 +32,7 @@
             $senha = addslashes($_POST['senha']);
             $confsenha = addslashes($_POST['confsenha']);
 
-            //cerificar se esta preenchido
+            //verificar se esta preenchido
             if(!empty($nome) && !empty($email) && !empty($senha) && !empty($confsenha)){
                 $u->conectar("fasthorse_editor", "localhost", "root", "");
 
@@ -80,4 +83,5 @@
         }
         ?>
     </body>
+    <br><br><br><br><br>
 </html>

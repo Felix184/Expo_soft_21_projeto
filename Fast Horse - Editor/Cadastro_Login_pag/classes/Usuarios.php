@@ -34,8 +34,7 @@
                 $sql->bindValue(":s",md5($senha)); //"md5" Criptografa a senha
                 $sql->execute();
                 return true;
-            }
-            
+            } 
         }
         public function logar($email, $senha){
             global $pdo;

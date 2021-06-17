@@ -5,14 +5,19 @@
 <html>
     <head>
         <meta charset="uft-8"/>
+       
         <title>FastHorse - Login</title>
         <link rel="stylesheet" href="../css/style_Log_Cad.css">
     </head>
+    
     <body>
+         <!--<div class="logo">         Aqui esta a imagem de logo que eu estava testando 
+            <img src="../img/LogoFastHorse-removebg-preview.png">
+        </div>-->
         <div class="corpo-form">
             <h1>Entrar</h1>
             <form method="POST" action="">
-                <input type="email" name="email" placeholder="Usuário">
+                <input type="email" name="email" placeholder="E-mail">
                 <input type="password" name="senha" placeholder="Senha">
                 <input type="submit" value="Acessar">
                 <a href="Cadastro.php">Ainda não se cadastrou?<strong> Cadastre-se aqui!</strong></a>
@@ -31,7 +36,7 @@
                     
                     if($u->msgErro == ""){
                         if($u->logar($email, $senha)){
-                            header("location: AreaPrivada.php");
+                            header("location: AreaPrivada-Perfil.php");
                         }else{
                             ?>
                             <div class="msg-erro">
