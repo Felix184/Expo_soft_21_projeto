@@ -34,11 +34,11 @@
 			</div>
 
 			<section class="btns-container">
-				<h1 class="lbl-editor lbl-1">Editor :</h1>
+				<h1 class="lbl-editor lbl-1">Editor :</h1>&nbsp;&nbsp;&nbsp;&nbsp;
+				<p class="aviso-lbl">Espelhar / Inverter irá resetar a imagem</p><br/><br/>
 				<button class="btn-editor first-btn" onclick="flipVertically()">Espelhar Imagem</button>
 				<button class="btn-editor" onclick="flipHorizontally()">Inverter Imagem</button>
 				<button class="btn-editor" onclick="crop()">Cortar</button>
-				
 
 				<h2 class="lbl-editor lbl-sub">Brilho :</h2>
 				<div class="slidecontainer">
@@ -46,17 +46,23 @@
 					<input type="range" min="0" max="100" value="50" class="slider" id="myRange">
 					<button class="btn-editor" onclick="makeBright()"><i class="fas fa-plus"></i></button>
 				</div>
-
+				
 				<button class="btn-editor first-btn" onclick="makeGrayScale()" id="gray-effect">Escala cinza</button>
-				<button class="btn-editor" onclick="makeBlur()" id="blur-effect">Desfocar Imagem</button>
-				<button class="btn-editor" onclick="makeSharp()" id="sharp-effect">Nitidez</button><br/>
+				<button class="btn-editor" onclick="makeBlur()" id="blur-effect">Desfocar </button>
+				<button class="btn-editor" onclick="makeSharp()" id="sharp-effect">Nitidez</button>
+				<button class="btn-editor" onclick="makeEmboss()" id="emboss-effect">Relevo</button>
+				
+				<h2 class="lbl-editor lbl-sub">Transparência :</h2>
+				<div class="slidecontainer">
+					<button class="btn-editor" onclick="decreaseTransparency()"><i class="fas fa-minus"></i></button>
+					<input type="range" min="0" max="100" value="100" class="slider" id="myRange2">
+					<button class="btn-editor" onclick="increaseTransparency()"><i class="fas fa-plus"></i></button>
+				</div>
 
 				<h1 class="lbl-editor">Filtros :</h1>
 				<button class="btn-editor first-btn" onclick="makeVintage()" id="vintage-effect">Filtro Vintage</button>
 				<button class="btn-editor" onclick="makeSummer()" id="summer-effect">Filtro Verão</button>
 				<button class="btn-editor" onclick="makeWinter()" id="winter-effect">Filtro Inverno</button>
-				<button class="btn-editor filter-btn" onclick="makeEmboss()" id="emboss-effect">Filtro Cartoon</button>
-				<button class="btn-editor" onclick="">Filtro ????</button>
 			</section> 
 
 			<div class="btn-download-section">

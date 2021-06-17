@@ -125,12 +125,18 @@ footer p {
 	margin-top: 5%;
 	margin-bottom: 4%;
 }
+.aviso-lbl {
+	color: red;
+	display: inline;
+	font-size: 15px;
+}
 .lbl-sub {
 	font-size: 18px; 
 	margin: 4% 0 1.5% 0;
 }
 .lbl-1 {
 	margin-top: 0;
+	display: inline;
 }
 .btn-editor {
 	color: #1d1e29;
@@ -149,10 +155,6 @@ footer p {
 }
 .first-btn {
 	margin-left: 0;
-}
-.filter-btn {
-	margin-top: 3%;
-	margin-left: 16%;
 }
 .slidecontainer {
 	display: flex;

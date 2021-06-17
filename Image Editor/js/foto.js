@@ -1,3 +1,7 @@
+/* Biblioteca javascript foto.js do usuário do github kousik19 
+link da biblioteca https://github.com/kousik19/foto.js
+Este javascript foi alterado para uso no site Fast Horse Editor */
+
 class Foto {
 
 	constructor() {
@@ -20,12 +24,12 @@ class Foto {
 		this.imageWidth = 0; 
 		this.imageHeight = 0;
 		this.convertedToGrayScale = false;
-		this.convertedToBlur = false;
-		this.convertedToEmboss = false;
-		this.convertedToSharp = false;
+
+		// atributos criados pelo Matheus
 		this.convertedToVintage = false;
 		this.convertedToSummer = false;
 		this.convertedToWinter = false;
+		this.Brightness = 0; 
 
 		this.previewImageElement = null;
 
@@ -163,64 +167,7 @@ class Foto {
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
 		this.previewImage();
-		this.convertedToGrayScale = true;
-	}
-	/**
-     * Bright 
-     */
-
-	makeBright() {
-		var modifiedImageData = this.imageData;
-		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
-			var pixel = [];
-			var red = modifiedImageData.data[i];
-			var green = modifiedImageData.data[i + 1];
-			var blue = modifiedImageData.data[i + 2];
-			var alpha = modifiedImageData.data[i + 3];
-
-			modifiedImageData.data[i] = red + 10;
-			modifiedImageData.data[i + 1] = green + 10;
-			modifiedImageData.data[i + 2] = blue + 10;
-			modifiedImageData.data[i + 3] = alpha;
-		}
-		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
-		this.previewImage();
-	}
-	/**
-     * Dark
-     */
-	makeDark() {
-		var modifiedImageData = this.imageData;
-		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
-			var pixel = [];
-			var red = modifiedImageData.data[i];
-			var green = modifiedImageData.data[i + 1];
-			var blue = modifiedImageData.data[i + 2];
-			var alpha = modifiedImageData.data[i + 3];
-
-			modifiedImageData.data[i] = red - 10;
-			modifiedImageData.data[i + 1] = green - 10;
-			modifiedImageData.data[i + 2] = blue - 10;
-			modifiedImageData.data[i + 3] = alpha;
-		}
-		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
-		this.previewImage();
-	}
-
-	/**
-     * Transparent
-     */
-	makeTransparent() {
-		var modifiedImageData = this.imageData;
-		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
-
-			if(Math.abs(modifiedImageData.data[i] - this.pickedR) < 30
-				 && Math.abs(modifiedImageData.data[i + 1] - this.pickedG) < 30
-				 && Math.abs(modifiedImageData.data[i + 2] - this.pickedB) < 30)
-				modifiedImageData.data[i + 3] = 0;
-		}
-		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
-		this.previewImage();
+		this.convertedToGrayScale = !this.convertedToGrayScale;
 	}
 
 	/**
@@ -285,7 +232,7 @@ class Foto {
 			[1/9, 1/9, 1/9],
 			[1/9, 1/9, 1/9]
 		])
-		this.convertedToBlur = true; 
+		this.convertedToBlur = !this.convertedToBlur;
 	}
 
 	/**
@@ -297,7 +244,7 @@ class Foto {
 			[-1, 1, 1],
 			[0, 1, 2]
 		])
-		this.convertedToEmboss = true; 
+		this.convertedToEmboss = !this.convertedToEmboss;
 	}
 
 	/**
@@ -309,15 +256,7 @@ class Foto {
 			[-1, 5, -1],
 			[0, -1, 0]
 		])
-		this.convertedToSharp = true;
-	}
-
-	applyCustom() {
-		this.applyFilter([
-			[2, -1, -1],
-			[1, 2, 1],
-			[-1, -1, -1]
-		])
+		this.convertedToSharp = !this.convertedToSharp;
 	}
 
 	flipVertically() {
@@ -347,27 +286,6 @@ class Foto {
 		this.operationOrgCtx.translate(0, this.imageHeight);
 		this.operationOrgCtx.scale(1, -1);
 		this.operationOrgCtx.drawImage(this.image, 0, 0);
-
-		this.imageData = this.operationOrgCtx.getImageData(0, 0, this.operationOrgCanvas.width, this.operationOrgCanvas.height);
-		this.generatePixelMatrix();
-
-		this.previewImage();
-	}
-
-	rotate(degrees){
-		this.operationEditedCtx.clearRect(0,0,this.operationEditedCanvas.width,this.operationEditedCanvas.height);
-		this.operationEditedCtx.save(); 
-		this.operationEditedCtx.translate(this.imageWidth/2,this.imageHeight/2);
-		this.operationEditedCtx.rotate(degrees * Math.PI/180);
-		this.operationEditedCtx.drawImage(this.image, -this.image.width/2, -this.image.width/2);
-		this.operationEditedCtx.restore();
-
-		this.operationOrgCtx.clearRect(0,0,this.operationOrgCanvas.width,this.operationOrgCanvas.height);
-		this.operationOrgCtx.save(); 
-		this.operationOrgCtx.translate(this.imageWidth/2,this.imageHeight/2);
-		this.operationOrgCtx.rotate(degrees * Math.PI/180);
-		this.operationOrgCtx.drawImage(this.image, -this.image.width/2, -this.image.width/2);
-		this.operationOrgCtx.restore(); 
 
 		this.imageData = this.operationOrgCtx.getImageData(0, 0, this.operationOrgCanvas.width, this.operationOrgCanvas.height);
 		this.generatePixelMatrix();
@@ -464,24 +382,6 @@ class Foto {
 		this.image.src = this.operationOrgCanvas.toDataURL();
 	}
 
-	pickColorPixel(x, y) {
-		var imgW = this.previewImageElement.width;
-		var imgH = this.previewImageElement.height;
-
-		var imgWFactor = this.imageWidth / imgW;
-		var imageHFactor = this.imageHeight / imgH;
-
-		var actualX = parseInt(x * imgWFactor);
-		var actualY = parseInt(y * imageHFactor);
-
-		var pixelData = this.operationOrgCtx.getImageData(actualX, actualY, 1, 1).data;
-		this.pickedR = pixelData[0];
-		this.pickedG = pixelData[1];
-		this.pickedB = pixelData[2];
-		this.pickedA = pixelData[3];
-
-		document.getElementById("color-preview").style.background = "rgb(" + this.pickedR + ", " + this.pickedG + ", " + this.pickedB + ")"
-	}
 
 	applyColorFilter(color) {
 		var r = parseInt(color.substr(1,2), 16) * .5;
@@ -494,85 +394,6 @@ class Foto {
 			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
 			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
 			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
-		}
-		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
-		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
-		this.previewImage();
-	}
-  applyVintageFilter(color) {
-		color = "#734F46";
-		var r = parseInt(color.substr(1,2), 16) * .5;
-		var g = parseInt(color.substr(3,2), 16) * .5;
-		var b = parseInt(color.substr(5,2), 16) * .5;
-
-		var modifiedImageData = this.imageData;
-		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
-
-			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
-			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
-			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
-		}
-		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
-		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
-		this.convertedToVintage = true;
-		this.previewImage();
-	}
-	applyWinterFilter(color) {
-		color = "#054f77";
-		var r = parseInt(color.substr(1,2), 16) * .5;
-		var g = parseInt(color.substr(3,2), 16) * .5;
-		var b = parseInt(color.substr(5,2), 16) * .5;
-
-		var modifiedImageData = this.imageData;
-		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
-
-			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
-			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
-			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
-		}
-		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
-		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
-		this.convertedToWinter = true;
-		this.previewImage();
-	}
-	applySummerFilter(color) {
-		color = "#fd821";
-		var r = parseInt(color.substr(1,2), 16) * .5;
-		var g = parseInt(color.substr(3,2), 16) * .5;
-		var b = parseInt(color.substr(5,2), 16) * .5;
-
-		var modifiedImageData = this.imageData;
-		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
-
-			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
-			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
-			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
-		}
-		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
-		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
-		this.convertedToSummer = true;
-		this.previewImage();
-	}
-	
-	colorize(color) {
-		var r = parseInt(color.substr(1,2), 16) * .5;
-		var g = parseInt(color.substr(3,2), 16) * .5;
-		var b = parseInt(color.substr(5,2), 16) * .5;
-
-		if(this.oldSelectedColorForColorize != undefined) {
-			r = - parseInt(this.oldSelectedColorForColorize.substr(1,2), 16) + r;
-			g = - parseInt(this.oldSelectedColorForColorize.substr(3,2), 16) + g;
-			b = - parseInt(this.oldSelectedColorForColorize.substr(3,2), 16) + b;
-		}
-
-		this.oldSelectedColorForColorize = color;
-
-		var modifiedImageData = this.imageData;
-		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
-
-			modifiedImageData.data[i] += r;
-			modifiedImageData.data[i + 1] += g;
-			modifiedImageData.data[i + 2] += b;
 		}
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
@@ -618,7 +439,146 @@ class Foto {
 		this.previewImage()
 	}
 
-	// Função para resetar a imagem do canvas
+	/* ----------------- métodos criados pelo Matheus ------------------------- */
+
+	resetFilter() {
+		this.applyFilter([
+			[0, 0, 0],
+			[0, 1, 0],
+			[0, 0, 0]
+		])
+	}
+	// Diminuir a transparência da imagem
+	decreaseTransparency() {
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+			var pixel = [];
+			var alpha = modifiedImageData.data[i + 3];
+			modifiedImageData.data[i + 3] = alpha - 10;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.previewImage();
+	}
+	
+	// Aumentar a transparência da imagem
+	increaseTransparency() {
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+			var pixel = [];
+			var alpha = modifiedImageData.data[i + 3];
+			modifiedImageData.data[i + 3] = alpha + 10;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.previewImage();
+	}
+	
+	//Aumentar o brilho das imagens -- o método original da biblioteca estava com bugs
+	makeBright() {
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+			var pixel = [];
+			var red = modifiedImageData.data[i];
+			var green = modifiedImageData.data[i + 1];
+			var blue = modifiedImageData.data[i + 2];
+			var alpha = modifiedImageData.data[i + 3];
+			
+			this.Brightness += 1;
+			
+			if (this.Brightness % 2 == 0) {this.qtdBrilho = 4} else {this.qtdBrilho = 6}
+
+			modifiedImageData.data[i] = red + this.qtdBrilho;
+			modifiedImageData.data[i + 1] = green + this.qtdBrilho;
+			modifiedImageData.data[i + 2] = blue + this.qtdBrilho;
+			modifiedImageData.data[i + 3] = alpha;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.previewImage();
+	}
+
+	// Tirar o brilho das imagens -- o método original da biblioteca estava com bugs
+	makeDark() {
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+			var pixel = [];
+			var red = modifiedImageData.data[i];
+			var green = modifiedImageData.data[i + 1];
+			var blue = modifiedImageData.data[i + 2];
+			var alpha = modifiedImageData.data[i + 3];
+			
+			this.Brightness -= 1;
+			
+			if (this.Brightness % 2 == 0) {this.qtdBrilho = 4} else {this.qtdBrilho = 6}
+
+			modifiedImageData.data[i] = red - this.qtdBrilho;
+			modifiedImageData.data[i + 1] = green - this.qtdBrilho;
+			modifiedImageData.data[i + 2] = blue - this.qtdBrilho;
+			modifiedImageData.data[i + 3] = alpha;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.previewImage();
+	}
+
+	// Filtro vintage
+	applyVintageFilter(color) {
+		color = "#734F46";
+		var r = parseInt(color.substr(1,2), 16) * .5;
+		var g = parseInt(color.substr(3,2), 16) * .5;
+		var b = parseInt(color.substr(5,2), 16) * .5;
+
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+
+			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
+			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
+			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
+		this.convertedToVintage = this.convertedToVintage;
+		this.previewImage();
+	}
+
+	// Filtro de inverno
+	applyWinterFilter(color) {
+		color = "#054f77";
+		var r = parseInt(color.substr(1,2), 16) * .5;
+		var g = parseInt(color.substr(3,2), 16) * .5;
+		var b = parseInt(color.substr(5,2), 16) * .5;
+
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+
+			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
+			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
+			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
+		this.convertedToWinter = !this.convertedToWinter;
+		this.previewImage();
+	}
+
+	// Filtro de verão
+	applySummerFilter(color) {
+		color = "#fd821";
+		var r = parseInt(color.substr(1,2), 16) * .5;
+		var g = parseInt(color.substr(3,2), 16) * .5;
+		var b = parseInt(color.substr(5,2), 16) * .5;
+
+		var modifiedImageData = this.imageData;
+		for(var i=0; i < modifiedImageData.data.length; i = i + 4) {
+
+			if(modifiedImageData.data[i] <= r)modifiedImageData.data[i] = r;
+			if(modifiedImageData.data[i + 1] <= g)modifiedImageData.data[i+1] = g;
+			if(modifiedImageData.data[i + 2] <= b)modifiedImageData.data[i+2] = b;
+		}
+		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
+		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
+		this.convertedToSummer = !this.convertedToSummer;
+		this.previewImage();
+	}
+
+	// método para resetar a imagem do canvas
 	resetImage() {
 		this.modifiedImageData = null;
 		this.image = null;
@@ -626,12 +586,10 @@ class Foto {
 		this.imageWidth = 0; 
 		this.imageHeight = 0;
 		this.convertedToGrayScale = false;
-		this.convertedToBlur = false;
-		this.convertedToEmboss = false;
-		this.convertedToSharp = false;
 		this.convertedToVintage = false;
 		this.convertedToSummer = false;
 		this.convertedToWinter = false;
+		this.Brightness = 0;
 
 		this.previewImageElement = null;
 
@@ -660,7 +618,119 @@ class Foto {
 		this.pickedG = null;
 		this.pickedB = null;
 
-		this.previewImage();	
+		this.previewImage();
 		this.loadImage();
+		this.resetAllButtons();
+	}
+
+	BlurButton() {
+		document.getElementById("blur-effect").style.border = "1px solid #303675";
+		document.getElementById("blur-effect").style.backgroundColor = "black";
+		document.getElementById("blur-effect").style.color = "white";
+	}
+	
+	SharpButton() {
+		document.getElementById("sharp-effect").style.border = "1px solid #303675";
+		document.getElementById("sharp-effect").style.backgroundColor = "black";
+		document.getElementById("sharp-effect").style.color = "white";
+	}
+	
+	EmbossButton() {
+		document.getElementById("emboss-effect").style.border = "1px solid #303675";
+		document.getElementById("emboss-effect").style.backgroundColor = "black";
+		document.getElementById("emboss-effect").style.color = "white";
+	}
+	
+	GrayButton() {
+		document.getElementById("gray-effect").style.border = "1px solid #303675";
+		document.getElementById("gray-effect").style.backgroundColor = "black";
+		document.getElementById("gray-effect").style.color = "white";
+	}
+	
+	SummerButton() {
+		document.getElementById("summer-effect").style.border = "1px solid #303675";
+		document.getElementById("summer-effect").style.backgroundColor = "black";
+		document.getElementById("summer-effect").style.color = "white";
+	}
+	
+	WinterButton() {
+		document.getElementById("winter-effect").style.border = "1px solid #303675";
+		document.getElementById("winter-effect").style.backgroundColor = "black";
+		document.getElementById("winter-effect").style.color = "white";
+	}
+	
+	VintageButton() {
+		document.getElementById("vintage-effect").style.border = "1px solid #303675";
+		document.getElementById("vintage-effect").style.backgroundColor = "black";
+		document.getElementById("vintage-effect").style.color = "white";
+	}
+	
+	resetBlurButton() {
+		document.getElementById("blur-effect").style.backgroundColor = "gray";
+		document.getElementById("blur-effect").style.color = "black";
+	}
+
+	resetSharpButton() {
+		document.getElementById("sharp-effect").style.backgroundColor = "gray";
+		document.getElementById("sharp-effect").style.color = "black";
+	}
+	
+	resetEmbossButton() {
+		document.getElementById("emboss-effect").style.backgroundColor = "gray";
+		document.getElementById("emboss-effect").style.color = "black";
+	}
+	
+	resetTransparentButton() {
+		document.getElementById("transparent-effect").style.border = "1px solid black";
+		document.getElementById("transparent-effect").style.backgroundColor = "white";
+		document.getElementById("transparent-effect").style.color = "black";
+	}
+
+	resetGrayButton() {
+		document.getElementById("gray-effect").style.border = "1px solid black";
+		document.getElementById("gray-effect").style.backgroundColor = "white";
+		document.getElementById("gray-effect").style.color = "black";
+	}
+
+	resetSummerButton() {
+		document.getElementById("summer-effect").style.border = "1px solid black";
+		document.getElementById("summer-effect").style.backgroundColor = "white";
+		document.getElementById("summer-effect").style.color = "black";
+	}
+
+	resetWinterButton() {
+		document.getElementById("winter-effect").style.border = "1px solid black";
+		document.getElementById("winter-effect").style.backgroundColor = "white";
+		document.getElementById("winter-effect").style.color = "black";
+	}
+
+	resetVintageButton() {
+		document.getElementById("vintage-effect").style.border = "1px solid black";
+		document.getElementById("vintage-effect").style.backgroundColor = "white";
+		document.getElementById("vintage-effect").style.color = "black";
+	}
+	
+	resetAllButtons() {
+		document.getElementById("blur-effect").style.border = "1px solid black";
+		document.getElementById("blur-effect").style.backgroundColor = "white";
+		document.getElementById("blur-effect").style.color = "black";
+		document.getElementById("sharp-effect").style.border = "1px solid black";
+		document.getElementById("sharp-effect").style.backgroundColor = "white";
+		document.getElementById("sharp-effect").style.color = "black";
+		document.getElementById("gray-effect").style.border = "1px solid black";
+		document.getElementById("gray-effect").style.backgroundColor = "white";
+		document.getElementById("gray-effect").style.color = "black";
+		document.getElementById("summer-effect").style.border = "1px solid black";
+		document.getElementById("summer-effect").style.backgroundColor = "white";
+		document.getElementById("summer-effect").style.color = "black";
+		document.getElementById("winter-effect").style.border = "1px solid black";
+		document.getElementById("winter-effect").style.backgroundColor = "white";
+		document.getElementById("winter-effect").style.color = "black";
+		document.getElementById("vintage-effect").style.border = "1px solid black";
+		document.getElementById("vintage-effect").style.backgroundColor = "white";
+		document.getElementById("vintage-effect").style.color = "black";
+		document.getElementById("emboss-effect").style.border = "1px solid black";
+		document.getElementById("emboss-effect").style.backgroundColor = "white";
+		document.getElementById("emboss-effect").style.color = "black";
 	}
 }

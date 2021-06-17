@@ -1,7 +1,8 @@
 var foto;
-var color;
 document.getElementById("myRange").disabled = true;
-var a = parseInt(document.getElementById("myRange").value);
+document.getElementById("myRange2").disabled = true;
+var indiceBright = parseInt(document.getElementById("myRange").value);
+var indiceTransparency = parseInt(document.getElementById("myRange2").value);
 
 window.onload = function() {
 	foto=new Foto(); 
@@ -9,26 +10,10 @@ window.onload = function() {
 
 function selectImage() {
 	document.getElementById("foto-file").click();
-	document.getElementById("blur-effect").style.border = "1px solid black";
-	document.getElementById("blur-effect").style.backgroundColor = "white";
-	document.getElementById("blur-effect").style.color = "black";
-	document.getElementById("sharp-effect").style.border = "1px solid black";
-	document.getElementById("sharp-effect").style.backgroundColor = "white";
-	document.getElementById("sharp-effect").style.color = "black";
-	document.getElementById("gray-effect").style.border = "1px solid black";
-	document.getElementById("gray-effect").style.backgroundColor = "white";
-	document.getElementById("gray-effect").style.color = "black";
-	document.getElementById("summer-effect").style.border = "1px solid black";
-	document.getElementById("summer-effect").style.backgroundColor = "white";
-	document.getElementById("summer-effect").style.color = "black";
-	document.getElementById("winter-effect").style.border = "1px solid black";
-	document.getElementById("winter-effect").style.backgroundColor = "white";
-	document.getElementById("winter-effect").style.color = "black";
-	document.getElementById("vintage-effect").style.border = "1px solid black";
-	document.getElementById("vintage-effect").style.backgroundColor = "white";
-	document.getElementById("vintage-effect").style.color = "black";
-	a = 50;
+	indiceBright = 50;
 	document.getElementById("myRange").value = 50;
+	indiceTransparency = 100;
+	document.getElementById("myRange2").value = 100;
 	foto.resetImage();
 }
 
@@ -37,125 +22,91 @@ function makeGrayScale() {
 		return;
 	} else { 
 		foto.grayscale();
-		document.getElementById("gray-effect").style.border = "1px solid #303675";
-		document.getElementById("gray-effect").style.backgroundColor = "black";
-		document.getElementById("gray-effect").style.color = "white";
+		foto.GrayButton();
 	}
+}
+
+function increaseTransparency() {
+	if (indiceTransparency == 100) { return; } 
+	foto.increaseTransparency();
+	indiceTransparency += 10;
+	document.getElementById("myRange2").value = indiceTransparency;
+}
+
+function decreaseTransparency() {
+	if (indiceTransparency == 0) { return; } 
+	foto.decreaseTransparency();
+	indiceTransparency -= 10;
+	document.getElementById("myRange2").value = indiceTransparency;
 }
 
 function makeBright() {
-	if (a > 100) { return; } 
+	if (indiceBright == 100) { return; } 
 	foto.makeBright();
-	a += 10;
-	document.getElementById("myRange").value = a;
+	indiceBright += 10;
+	document.getElementById("myRange").value = indiceBright;
 }
 
 function makeDark() {
-	if (a < 1 ) {return;}
+	if (indiceBright == 0 ) {return;}
 	foto.makeDark();
-	a -= 10;
-	document.getElementById("myRange").value = a;
+	indiceBright -= 10;
+	document.getElementById("myRange").value = indiceBright;
 }
 
 function makeBlur() {
-	if (foto.convertedToSharp == true) {
-		document.getElementById("sharp-effect").style.border = "1px solid black";
-		document.getElementById("sharp-effect").style.backgroundColor = "white";
-		document.getElementById("sharp-effect").style.color = "black";
-		foto.applyBlurFilter();
-		document.getElementById("blur-effect").style.border = "1px solid #303675";
-		document.getElementById("blur-effect").style.backgroundColor = "black";
-		document.getElementById("blur-effect").style.color = "white";
-	} else {
-		foto.applyBlurFilter();
-		document.getElementById("blur-effect").style.border = "1px solid #303675";
-		document.getElementById("blur-effect").style.backgroundColor = "black";
-		document.getElementById("blur-effect").style.color = "white";
-	}
+	foto.BlurButton();
+	foto.applyBlurFilter();
+	document.getElementById("sharp-effect").disabled = true;
+	document.getElementById("emboss-effect").disabled = true;
+	foto.resetEmbossButton();
+	foto.resetSharpButton();
 }
 
 function makeEmboss() {
+	foto.EmbossButton();
 	foto.applyEmbossFilter();
+	document.getElementById("sharp-effect").disabled = true;
+	document.getElementById("blur-effect").disabled = true;
+	foto.resetSharpButton();
+	foto.resetBlurButton();
 }
 
 function makeSharp() {
-	if (foto.convertedToBlur == true) {
-		document.getElementById("blur-effect").style.border = "1px solid black";
-		document.getElementById("blur-effect").style.backgroundColor = "white";
-		document.getElementById("blur-effect").style.color = "black";
-		foto.applySharpFilter();
-		document.getElementById("sharp-effect").style.border = "1px solid #303675";
-		document.getElementById("sharp-effect").style.backgroundColor = "black";
-		document.getElementById("sharp-effect").style.color = "white";
-	} else {
-		foto.applySharpFilter();
-		document.getElementById("sharp-effect").style.border = "1px solid #303675";
-		document.getElementById("sharp-effect").style.backgroundColor = "black";
-		document.getElementById("sharp-effect").style.color = "white";
-	}
+	foto.SharpButton();
+	foto.applySharpFilter();
+	document.getElementById("emboss-effect").disabled = true;
+	document.getElementById("blur-effect").disabled = true;
+	foto.resetEmbossButton();
+	foto.resetBlurButton();
 }
 
 function makeVintage() {
-	if (foto.convertedToVintage == true) {
-		return;
-	} else { 
-		foto.applyVintageFilter();
-		document.getElementById("vintage-effect").style.border = "1px solid #303675";
-		document.getElementById("vintage-effect").style.backgroundColor = "black";
-		document.getElementById("vintage-effect").style.color = "white";
-	}
+	foto.applyVintageFilter();
+	foto.VintageButton();
 }
 
 
 function makeWinter() {
-	if (foto.convertedToWinter == true) {
-		return;
-	} else { 
-		foto.applyWinterFilter();
-		document.getElementById("winter-effect").style.border = "1px solid #303675";
-		document.getElementById("winter-effect").style.backgroundColor = "black";
-		document.getElementById("winter-effect").style.color = "white";
-	}
+	foto.applyWinterFilter();
+	foto.WinterButton();
 }
 
 function makeSummer() {
-	if (foto.convertedToSummer == true) {
-		return;
-	} else { 
-		foto.applySummerFilter();
-		document.getElementById("summer-effect").style.border = "1px solid #303675";
-		document.getElementById("summer-effect").style.backgroundColor = "black";
-		document.getElementById("summer-effect").style.color = "white";
-	}
+	foto.applySummerFilter();
+	foto.SummerButton();
 }
 
 
 function resetImage() {
-	foto.resetImage();
-	document.getElementById("blur-effect").style.border = "1px solid black";
-	document.getElementById("blur-effect").style.backgroundColor = "white";
-	document.getElementById("blur-effect").style.color = "black";
-	document.getElementById("sharp-effect").style.border = "1px solid black";
-	document.getElementById("sharp-effect").style.backgroundColor = "white";
-	document.getElementById("sharp-effect").style.color = "black";
-	document.getElementById("gray-effect").style.border = "1px solid black";
-	document.getElementById("gray-effect").style.backgroundColor = "white";
-	document.getElementById("gray-effect").style.color = "black";
-	document.getElementById("summer-effect").style.border = "1px solid black";
-	document.getElementById("summer-effect").style.backgroundColor = "white";
-	document.getElementById("summer-effect").style.color = "black";
-	document.getElementById("winter-effect").style.border = "1px solid black";
-	document.getElementById("winter-effect").style.backgroundColor = "white";
-	document.getElementById("winter-effect").style.color = "black";
-	document.getElementById("vintage-effect").style.border = "1px solid black";
-	document.getElementById("vintage-effect").style.backgroundColor = "white";
-	document.getElementById("vintage-effect").style.color = "black";
-	a = 50;
+	indiceTransparency = 100;
+	document.getElementById("myRange2").value = 100;
+	indiceBright = 50;
 	document.getElementById("myRange").value = 50;
-}
-
-function makeTransparent() {
-	foto.makeTransparent();
+	document.getElementById("sharp-effect").disabled = false;
+	document.getElementById("emboss-effect").disabled = false;
+	document.getElementById("blur-effect").disabled = false;
+	foto.resetImage();
 }
 
 function crop() {
@@ -165,61 +116,35 @@ function crop() {
 function flipVertically() {
 	foto.flipVertically();
 	foto.convertedToGrayScale = false;
-	foto.convertedToBlur = false;
-	foto.convertedToEmboss = false;
-	foto.convertedToSharp = false;
-	document.getElementById("blur-effect").style.border = "1px solid black";
-	document.getElementById("blur-effect").style.backgroundColor = "white";
-	document.getElementById("blur-effect").style.color = "black";
-	document.getElementById("sharp-effect").style.border = "1px solid black";
-	document.getElementById("sharp-effect").style.backgroundColor = "white";
-	document.getElementById("sharp-effect").style.color = "black";
-	document.getElementById("gray-effect").style.border = "1px solid black";
-	document.getElementById("gray-effect").style.backgroundColor = "white";
-	document.getElementById("gray-effect").style.color = "black";
-	document.getElementById("summer-effect").style.border = "1px solid black";
-	document.getElementById("summer-effect").style.backgroundColor = "white";
-	document.getElementById("summer-effect").style.color = "black";
-	document.getElementById("winter-effect").style.border = "1px solid black";
-	document.getElementById("winter-effect").style.backgroundColor = "white";
-	document.getElementById("winter-effect").style.color = "black";
-	document.getElementById("vintage-effect").style.border = "1px solid black";
-	document.getElementById("vintage-effect").style.backgroundColor = "white";
-	document.getElementById("vintage-effect").style.color = "black";
-	a = 50;
+	foto.convertedToVintage = false;
+	foto.convertedToSummer = false;
+	foto.convertedToWinter = false;
+	document.getElementById("sharp-effect").disabled = false;
+	document.getElementById("emboss-effect").disabled = false;
+	document.getElementById("blur-effect").disabled = false;
+	foto.Brightness = 0;
+	foto.resetAllButtons();
+	indiceBright = 50;
 	document.getElementById("myRange").value = 50;
+	indiceTransparency = 100;
+	document.getElementById("myRange2").value = 100;
 }
 
 function flipHorizontally() {
 	foto.flipHorizontally();
 	foto.convertedToGrayScale = false;
-	foto.convertedToBlur = false;
-	foto.convertedToEmboss = false;
-	foto.convertedToSharp = false;
-	document.getElementById("blur-effect").style.border = "1px solid black";
-	document.getElementById("blur-effect").style.backgroundColor = "white";
-	document.getElementById("blur-effect").style.color = "black";
-	document.getElementById("sharp-effect").style.border = "1px solid black";
-	document.getElementById("sharp-effect").style.backgroundColor = "white";
-	document.getElementById("sharp-effect").style.color = "black";
-	document.getElementById("gray-effect").style.border = "1px solid black";
-	document.getElementById("gray-effect").style.backgroundColor = "white";
-	document.getElementById("gray-effect").style.color = "black";
-	document.getElementById("summer-effect").style.border = "1px solid black";
-	document.getElementById("summer-effect").style.backgroundColor = "white";
-	document.getElementById("summer-effect").style.color = "black";
-	document.getElementById("winter-effect").style.border = "1px solid black";
-	document.getElementById("winter-effect").style.backgroundColor = "white";
-	document.getElementById("winter-effect").style.color = "black";
-	document.getElementById("vintage-effect").style.border = "1px solid black";
-	document.getElementById("vintage-effect").style.backgroundColor = "white";
-	document.getElementById("vintage-effect").style.color = "black";
-	a = 50;
+	foto.convertedToVintage = false;
+	foto.convertedToSummer = false;
+	foto.convertedToWinter = false;
+	document.getElementById("sharp-effect").disabled = false;
+	document.getElementById("emboss-effect").disabled = false;
+	document.getElementById("blur-effect").disabled = false;
+	foto.Brightness = 0;
+	foto.resetAllButtons();
+	indiceBright = 50;
 	document.getElementById("myRange").value = 50;
-}
-
-function rotate(elem) {
-	foto.rotate(elem.value);
+	indiceTransparency = 100;
+	document.getElementById("myRange2").value = 100;
 }
 
 function download() {
