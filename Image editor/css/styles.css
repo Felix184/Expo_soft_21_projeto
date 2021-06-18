@@ -1,0 +1,92 @@
+/* ---------- Estilos Gerais ---------- */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: 0;
+	font-family: "Times New Roman", Times, serif;
+}
+.editor-container {
+	background-color: #535675;
+}
+main {
+	height: 100vh;
+}
+
+/* Paleta de cores do site 
+#1D1E29
+#535675
+#1B1E42
+#303675
+#8A8EC2
+*/
+
+/* ---------- Header menu ---------- */
+header {
+	margin-bottom: 50px;
+	box-shadow: 0px 1px 8px #000;
+}
+ul {
+	list-style: none;
+	overflow: hidden;
+	background-color: #1d1e29;
+}
+li {
+	float: left;
+}
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 18px;
+	text-decoration: none;
+	font-size: 18px;
+	margin-left: 10px;
+}
+li a:hover {
+	background-color: black;
+}
+
+
+/* ---------- Estilos do editor ---------- */
+.img-container {
+	display: block;
+	width: 60%;
+	height: 60%;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	border: 2px solid #1d1e29;
+	background-image: url(../img/default.jpg)
+}
+.image {
+	max-width: 100%;
+	max-height: 100%;
+}
+.file-upload-section {
+	margin: 0 auto;
+	font-weight: 400;
+	width: 15%;
+	color: white;
+	text-align: center;
+	background-color: #1d1e29; 
+	cursor: pointer;
+}
+#foto-file {
+	display: none;
+}
+.btn-download {
+	display: block;
+	margin: 0 auto;
+	font-weight: 400;
+	width: 15%;
+	font-size: 18px;
+	color: white;
+	text-align: center;
+	background-color: #1d1e29; 
+	cursor: pointer;
+}
+.btn-download:hover {
+	background-color: black;
+}
