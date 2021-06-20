@@ -156,25 +156,26 @@ footer p {
 }
 
 #foto_sobre {
-    width: 310px;
-    height: 160px;
+    width: 315px;
+    height: 190px;
     border-radius: 15% 15% 15% 15%;
     margin: 0% auto;
     box-shadow: 0px 3px 9px #000;
     background-color: #1B1E42;
-    font-size: 30px;
+    font-size: 28px;
     color: whitesmoke;
     padding: .5%;
 }
 
 #foto_sobre :hover {
+    height: 190px;
     border-radius: 15% 15% 15% 15%;
     box-shadow: 2px 4px 12px #000;
     background-color: #1B1E42;
     color: whitesmoke;
     transform: scaleX(1.1) scaleY(1.1);
     /* aumentar botão ao passar em cima*/
-    font-size: 31px;
+    font-size: 29px;
     transition-duration: .2s;
 }
 
@@ -188,6 +189,7 @@ footer p {
     text-decoration: none;
     border: solid #1d1e29;
     border-radius: 15% 15% 15% 15%;
+    box-shadow: 2px 4px 12px grey;
 }
 
 #foto_sobre :link {
@@ -199,9 +201,9 @@ footer p {
 #foto_2,
 #foto_3,
 #foto_4 {
-    float: none;
+    float: left;
     padding: 0%;
-    margin: 0%;
+    margin-inline: 5%;
     height: 140px;
     border-radius: 50%;
     border: solid #1d1e29;
@@ -209,11 +211,29 @@ footer p {
     /*desabilita ação de mousa em cima da imagem, somente na div*/
 }
 
-#nome_sobre {
+#descricao {
+    font-size: 18px;
     pointer-events: none;
-    float: right;
-    margin: 0%;
+    float: left;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+#nomes_sobre {
+    pointer-events: none;
+    float: left;
+}
+
+#logo_github {
+    pointer-events: none;
+    float: none;
+    border-radius: 45%;
+    margin-left: 4%;
     padding: 0%;
+}
+
+#logo_github :hover {
+    transform: scaleX(1.1) scaleY(1.1);
 }
 
 
