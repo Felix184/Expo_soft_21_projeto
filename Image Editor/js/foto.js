@@ -1,3 +1,14 @@
+/*-----------------------------------------------------------------------------------------------------
+Nome do projeto: Fast Horse Editor                                                          
+Descrição: Usuário consegue fazer o upload de imagens, editar as imagens modificando seu brilho, 
+transparência e alterando filtros. E usuário consegue baixar a imagem com as edições feitas.
+
+Autores: 
+Matheus Felix Carlos | número: 16                                                          Versão: 1.0
+Alberto Veiga Potas |número: 1                                                           Data:20/06/21 
+Hebert Victor | número: 8
+Kaike Santos Coppola | número 10
+-----------------------------------------------------------------------------------------------------*/
 /* Biblioteca javascript foto.js do usuário do github kousik19 
 link da biblioteca https://github.com/kousik19/foto.js
 Este javascript foi alterado para uso no site Fast Horse Editor */
@@ -65,23 +76,12 @@ class Foto {
 		this.oldSelectedColorForColorize = null;
 		this.ctrlPressed = false;
 
-		//attach few events
-		var root = this;
-		document.addEventListener("keydown", function(event){
-			if(event.keyCode == 17) {
-				root.ctrlPressed = true;
-			}
-		})
-
-		document.addEventListener("keyup", function(event){
-			root.ctrlPressed = true;
-		})
 	}
 
 	loadImage() {
 
 		var input = document.getElementById("foto-file");
-		this.selectedFileName = input.files.item(0).name
+		this.selectedFileName = input.files.item(0).name;
 		var reader = new FileReader();
 		var root = this;
 
@@ -232,7 +232,6 @@ class Foto {
 			[1/9, 1/9, 1/9],
 			[1/9, 1/9, 1/9]
 		])
-		this.convertedToBlur = !this.convertedToBlur;
 	}
 
 	/**
@@ -244,7 +243,6 @@ class Foto {
 			[-1, 1, 1],
 			[0, 1, 2]
 		])
-		this.convertedToEmboss = !this.convertedToEmboss;
 	}
 
 	/**
@@ -256,7 +254,6 @@ class Foto {
 			[-1, 5, -1],
 			[0, -1, 0]
 		])
-		this.convertedToSharp = !this.convertedToSharp;
 	}
 
 	flipVertically() {
@@ -377,12 +374,6 @@ class Foto {
 		//this.recreateImageObject();
 	}
 
-	recreateImageObject() {
-		this.image = new Image();
-		this.image.src = this.operationOrgCanvas.toDataURL();
-	}
-
-
 	applyColorFilter(color) {
 		var r = parseInt(color.substr(1,2), 16) * .5;
 		var g = parseInt(color.substr(3,2), 16) * .5;
@@ -441,6 +432,7 @@ class Foto {
 
 	/* ----------------- métodos criados pelo Matheus ------------------------- */
 
+	// reseta os filtros aplicados -- sem uso no momento
 	resetFilter() {
 		this.applyFilter([
 			[0, 0, 0],
@@ -448,6 +440,8 @@ class Foto {
 			[0, 0, 0]
 		])
 	}
+
+
 	// Diminuir a transparência da imagem
 	decreaseTransparency() {
 		var modifiedImageData = this.imageData;
@@ -459,7 +453,7 @@ class Foto {
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.previewImage();
 	}
-	
+
 	// Aumentar a transparência da imagem
 	increaseTransparency() {
 		var modifiedImageData = this.imageData;
@@ -471,7 +465,7 @@ class Foto {
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.previewImage();
 	}
-	
+
 	//Aumentar o brilho das imagens -- o método original da biblioteca estava com bugs
 	makeBright() {
 		var modifiedImageData = this.imageData;
@@ -481,9 +475,9 @@ class Foto {
 			var green = modifiedImageData.data[i + 1];
 			var blue = modifiedImageData.data[i + 2];
 			var alpha = modifiedImageData.data[i + 3];
-			
+
 			this.Brightness += 1;
-			
+
 			if (this.Brightness % 2 == 0) {this.qtdBrilho = 4} else {this.qtdBrilho = 6}
 
 			modifiedImageData.data[i] = red + this.qtdBrilho;
@@ -504,9 +498,9 @@ class Foto {
 			var green = modifiedImageData.data[i + 1];
 			var blue = modifiedImageData.data[i + 2];
 			var alpha = modifiedImageData.data[i + 3];
-			
+
 			this.Brightness -= 1;
-			
+
 			if (this.Brightness % 2 == 0) {this.qtdBrilho = 4} else {this.qtdBrilho = 6}
 
 			modifiedImageData.data[i] = red - this.qtdBrilho;
@@ -534,7 +528,7 @@ class Foto {
 		}
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
-		this.convertedToVintage = this.convertedToVintage;
+		this.convertedToVintage = true;
 		this.previewImage();
 	}
 
@@ -554,7 +548,7 @@ class Foto {
 		}
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
-		this.convertedToWinter = !this.convertedToWinter;
+		this.convertedToWinter = true;
 		this.previewImage();
 	}
 
@@ -574,7 +568,7 @@ class Foto {
 		}
 		this.operationEditedCtx.putImageData(modifiedImageData, 0, 0);
 		this.operationOrgCtx.putImageData(modifiedImageData, 0, 0);
-		this.convertedToSummer = !this.convertedToSummer;
+		this.convertedToSummer = true;
 		this.previewImage();
 	}
 
@@ -621,95 +615,108 @@ class Foto {
 		this.previewImage();
 		this.loadImage();
 		this.resetAllButtons();
+
+		document.getElementById("sharp-effect").disabled = false;
+		document.getElementById("emboss-effect").disabled = false;
+		document.getElementById("blur-effect").disabled = false;
+		document.getElementById("summer-effect").disabled = false;
+		document.getElementById("winter-effect").disabled = false;
+		document.getElementById("vintage-effect").disabled = false;
 	}
 
+	//aplica o estilo no botão de borrar a imagem -- quando ele é pressionado
 	BlurButton() {
 		document.getElementById("blur-effect").style.border = "1px solid #303675";
 		document.getElementById("blur-effect").style.backgroundColor = "black";
 		document.getElementById("blur-effect").style.color = "white";
 	}
-	
+
+	// aplica o estilo no botão de nitidez -- quando ele é pressionado
 	SharpButton() {
 		document.getElementById("sharp-effect").style.border = "1px solid #303675";
 		document.getElementById("sharp-effect").style.backgroundColor = "black";
 		document.getElementById("sharp-effect").style.color = "white";
 	}
-	
+
+	// aplica o estilo no botão de relevo -- quando ele é pressionado
 	EmbossButton() {
 		document.getElementById("emboss-effect").style.border = "1px solid #303675";
 		document.getElementById("emboss-effect").style.backgroundColor = "black";
 		document.getElementById("emboss-effect").style.color = "white";
 	}
-	
+
+	// aplica o estilo no botão de escala de cinza -- quando ele é pressionado
 	GrayButton() {
 		document.getElementById("gray-effect").style.border = "1px solid #303675";
 		document.getElementById("gray-effect").style.backgroundColor = "black";
 		document.getElementById("gray-effect").style.color = "white";
 	}
-	
+
+	// aplica o estilo no botão do filtro de verão -- quando ele é pressionado
 	SummerButton() {
 		document.getElementById("summer-effect").style.border = "1px solid #303675";
 		document.getElementById("summer-effect").style.backgroundColor = "black";
 		document.getElementById("summer-effect").style.color = "white";
 	}
-	
+
+	// aplica o estilo no botão do filtro de inverno -- quando ele é presionado
 	WinterButton() {
 		document.getElementById("winter-effect").style.border = "1px solid #303675";
 		document.getElementById("winter-effect").style.backgroundColor = "black";
 		document.getElementById("winter-effect").style.color = "white";
 	}
-	
+
+	// aplica o estilo no botão do filtro vintage -- quando ele é presionado
 	VintageButton() {
 		document.getElementById("vintage-effect").style.border = "1px solid #303675";
 		document.getElementById("vintage-effect").style.backgroundColor = "black";
 		document.getElementById("vintage-effect").style.color = "white";
 	}
-	
-	resetBlurButton() {
+
+
+	// aplica o estilo de pressionado no botão de borrar a imagem
+	pressedBlurButton() {
 		document.getElementById("blur-effect").style.backgroundColor = "gray";
 		document.getElementById("blur-effect").style.color = "black";
+		document.getElementById("blur-effect").disabled = true;
 	}
 
-	resetSharpButton() {
+	// aplica o estilo de pressionado no botão de nitidez
+	pressedSharpButton() {
 		document.getElementById("sharp-effect").style.backgroundColor = "gray";
 		document.getElementById("sharp-effect").style.color = "black";
+		document.getElementById("sharp-effect").disabled = true;
 	}
-	
-	resetEmbossButton() {
+
+	// aplica o estilo de pressionado no botão de relevo
+	pressedEmbossButton() {
 		document.getElementById("emboss-effect").style.backgroundColor = "gray";
 		document.getElementById("emboss-effect").style.color = "black";
-	}
-	
-	resetTransparentButton() {
-		document.getElementById("transparent-effect").style.border = "1px solid black";
-		document.getElementById("transparent-effect").style.backgroundColor = "white";
-		document.getElementById("transparent-effect").style.color = "black";
+		document.getElementById("emboss-effect").disabled = true;
 	}
 
-	resetGrayButton() {
-		document.getElementById("gray-effect").style.border = "1px solid black";
-		document.getElementById("gray-effect").style.backgroundColor = "white";
-		document.getElementById("gray-effect").style.color = "black";
-	}
-
-	resetSummerButton() {
-		document.getElementById("summer-effect").style.border = "1px solid black";
-		document.getElementById("summer-effect").style.backgroundColor = "white";
+	// aplica o estilo de pressionado no botão de filtro de verão
+	pressedSummerButton() {
+		document.getElementById("summer-effect").style.backgroundColor = "gray";
 		document.getElementById("summer-effect").style.color = "black";
+		document.getElementById("summer-effect").disabled = true;
 	}
 
-	resetWinterButton() {
-		document.getElementById("winter-effect").style.border = "1px solid black";
-		document.getElementById("winter-effect").style.backgroundColor = "white";
+	// aplica o estilo de pressionado no botão de filtro de inverno
+	pressedWinterButton() {
+		document.getElementById("winter-effect").style.backgroundColor = "gray";
 		document.getElementById("winter-effect").style.color = "black";
+		document.getElementById("winter-effect").disabled = true;
 	}
 
-	resetVintageButton() {
-		document.getElementById("vintage-effect").style.border = "1px solid black";
-		document.getElementById("vintage-effect").style.backgroundColor = "white";
+	// aplica o estilo de pressionado no botão de filtro vintage
+	pressedVintageButton() {
+		document.getElementById("vintage-effect").style.backgroundColor = "gray";
 		document.getElementById("vintage-effect").style.color = "black";
+		document.getElementById("vintage-effect").disabled = true;
 	}
-	
+
+	// Resetar todos os botões ao estilo original
 	resetAllButtons() {
 		document.getElementById("blur-effect").style.border = "1px solid black";
 		document.getElementById("blur-effect").style.backgroundColor = "white";
