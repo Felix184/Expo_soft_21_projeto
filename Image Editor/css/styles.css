@@ -1,3 +1,13 @@
+/*----------------------------------------------------------------------------------------
+Nome do projeto: Fast Horse Editor                                                          
+Descrição: CSS do site Fast Horse Editor.
+Autores: 
+Matheus Felix Carlos | número: 16                                          Versão: 1.0                                             
+Alberto Veiga Potas |número: 1                                             Data:20/06/21          
+Hebert Victor | número: 8
+Kaike Santos Coppola | número :10
+-----------------------------------------------------------------------------------------*/
+
 /* ---------- Estilos Gerais ---------- */
 
 * {
@@ -53,6 +63,18 @@ li a {
 	margin-left: 10px;
 }
 
+.logo {
+	padding: 2px 0;
+	margin-left: 15px;
+}
+
+.logo img {
+	vertical-align: middle;
+}
+
+.logo:hover {
+	background-color: #1d1e29;
+}
 li a:hover {
 	background-color: black;
 }
@@ -221,50 +243,51 @@ footer p {
 
 #sobre_body {
 	background-color: #535675;
-	text-align: center;
+	margin: 0%;
 }
 
 #sobre_body h1 {
 	text-align: center;
-	color: white;
+	color: whitesmoke;
 	font-size: 45px;
 }
 
 #txt_sobre {
-	color: white;
+	color: whitesmoke;
 	font-size: 26px;
+	text-align: center;
 }
 
 #container_sobre {
 	width: 100%;
 	height: 100%;
-	padding: 0% auto;
+	padding: 0%;
 	display: inline-flex;
 	flex-wrap: nowrap;
 	box-sizing: border-box;
 }
 
 #foto_sobre {
-	width: 310px;
-	height: 160px;
+	width: 315px;
+	height: 190px;
 	border-radius: 15% 15% 15% 15%;
 	margin: 0% auto;
 	box-shadow: 0px 3px 9px #000;
 	background-color: #1B1E42;
-	font-size: 30px;
-	text-align: center;
+	font-size: 28px;
 	color: whitesmoke;
 	padding: .5%;
 }
 
 #foto_sobre :hover {
+	height: 190px;
 	border-radius: 15% 15% 15% 15%;
 	box-shadow: 2px 4px 12px #000;
 	background-color: #1B1E42;
 	color: whitesmoke;
 	transform: scaleX(1.1) scaleY(1.1);
 	/* aumentar botão ao passar em cima*/
-	font-size: 31px;
+	font-size: 29px;
 	transition-duration: .2s;
 }
 
@@ -278,6 +301,7 @@ footer p {
 	text-decoration: none;
 	border: solid #1d1e29;
 	border-radius: 15% 15% 15% 15%;
+	box-shadow: 2px 4px 12px grey;
 }
 
 #foto_sobre :link {
@@ -289,13 +313,39 @@ footer p {
 #foto_2,
 #foto_3,
 #foto_4 {
-	border-style: solid whitesmoke;
-	border-radius: 50%;
+	float: left;
+	padding: 0%;
+	margin-inline: 5%;
 	height: 140px;
-	padding: 0% auto;
+	border-radius: 50%;
 	border: solid #1d1e29;
 	pointer-events: none;
 	/*desabilita ação de mousa em cima da imagem, somente na div*/
+}
+
+#descricao {
+	font-size: 18px;
+	pointer-events: none;
+	float: left;
+	margin-left: 10%;
+	margin-top: 4%;
+}
+
+#nomes_sobre {
+	pointer-events: none;
+	float: left;
+}
+
+#logo_github {
+	pointer-events: none;
+	float: none;
+	border-radius: 45%;
+	margin-left: 4%;
+	padding: 0%;
+}
+
+#logo_github :hover {
+	transform: scaleX(1.1) scaleY(1.1);
 }
 
 /* ---------- Estilos da Home ---------- */
@@ -310,26 +360,26 @@ footer p {
 	vertical-align: middle;
 }
 .home-container h1{
-    margin-top: -25px;
+	margin-top: -25px;
 	text-align: center;
 	font-size: 25px;
 	color: white;
 }
 .home-container h2 {
-    margin-top: -20px;
+	margin-top: -20px;
 	text-align: center;
 	font-size: 18px;
 	color: white;
 }
 
 .home-container h3 {
-     margin-top: 2px;
+	margin-top: 2px;
 	text-align: center;
 	font-size: 20px;
 	color:crimson;
 }
 
-    
+
 /* Slideshow container */
 .slideshow-container {
 	width: 980px;
