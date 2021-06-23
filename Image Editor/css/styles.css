@@ -185,7 +185,7 @@ footer p {
 }
 
 #foto_sobre :active {
-    color: whitesmoke;
+    color: none;
     text-decoration: none;
     border: solid #1d1e29;
     border-radius: 15% 15% 15% 15%;
