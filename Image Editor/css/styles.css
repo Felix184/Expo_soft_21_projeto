@@ -461,3 +461,14 @@ footer p {
 }
 
 /* -------------------- */
+.btnSair {
+	display: block;
+	font-weight: 400;
+	padding: 12px 38px;
+	font-size: 18px;
+	color: white;
+	font-weight: 400;
+	text-align: center;
+	background-color: #1d1e29; 
+	cursor: pointer;
+}
