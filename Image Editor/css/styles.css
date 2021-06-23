@@ -355,6 +355,7 @@ footer p {
 }
 .mySlides {
 	display: none
+    
 }
 .home-container img {
 	vertical-align: middle;
@@ -384,8 +385,10 @@ footer p {
 .slideshow-container {
 	width: 980px;
 	height: 436px;
-	margin: auto;
-	position: relative;
+	margin-top: -40px;
+    margin-left: 180px;
+	position: absolute;
+    
 }
 
 /* Botão próximo e botão voltar */
@@ -421,13 +424,12 @@ footer p {
 	font-size: 20px;
 	padding: 5px 12px;
 	position: absolute;
-	bottom: 15px;
-	bottom: 15px;
+	bottom: -5px;
 	width: 100%;
 	text-align:center;
 }
 
-/* Numero text passos (1/5 etc) */
+/* Numero text passos (1/5 ) */
 .numero-do-passo {
 	color: #FFFFFF;
 	font-size: 20px;
