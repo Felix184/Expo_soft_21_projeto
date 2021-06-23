@@ -1,0 +1,127 @@
+/*------------------------------------------------------------------------------------------------------
+Nome do projeto: Fast Horse Editor
+Descrição: .
+
+Autores:
+
+Turma: 2TID
+Matheus Felix Carlos | número: 16                                                          Versão: 1.0
+Alberto Veiga Potas |número: 1                                                             Data:20/06/21 
+Hebert Victor | número: 8
+Kaike Santos Coppola | número 10
+
+Altores externos: 
+(Processamento do Cadastro e login e parte do CSS) -> Miriam TechCod: 
+https://www.youtube.com/watch?v=et-j0z-tbk4&list=PLYGFJHWj9BYq5zosbRaY7XM5vM0ISLkWS
+-------------------------------------------------------------------------------------------------------*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Times New Roman", Times, serif;
+}
+body{
+    background-image: linear-gradient(to bottom right, #303675, black);
+
+}
+input{
+    display: block;
+    height: 55px;
+    width: 400px;
+    margin: 10px;
+    border-radius: 30px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 16pt;
+    padding: 10px 20px;
+    border-color: transparent;
+    background-color: transparent;
+   
+    outline: none;
+    color: #fff;
+}
+
+input[type=submit] {
+    background-color: #000000;
+    color: white;
+    border-color: rgb(0, 0, 0);
+    cursor: pointer;
+    padding: 10px;
+}
+
+input[type=checkbox]{
+    width: 30px;
+    height: 30px;
+}
+fieldset{
+    border-radius: 30px;
+    margin: 5px;
+}
+
+.corpo-form{
+    width: 420px;
+    margin: 13% auto 0px auto;
+}
+
+.corpo-form h1{
+    text-align: center;
+    padding: 20px;
+}
+h1{
+    color: #fff;
+}
+a{
+    color: rgb(255, 255, 255);
+    text-decoration: none; /*tira o underline que ja vem no "a" por padrão*/
+    text-align: center;
+    display: block;
+}
+a:hover{
+    text-decoration: underline; /*devolve o underline para o "a" por meio do hover*/
+}
+
+.check{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    float: right;
+    position: absolute, 130px;
+}
+
+label{
+    color: rgb(255, 255, 255);
+   font-size: 9pt;
+}
+
+
+/*Para que funcione em outros navegadores*/
+::-webkit-input-placeholder{/*WebKit browsers*/
+    color: #fff;
+}
+:-moz-placeholder{/*Mozilla Firefox 4 to 18*/
+    color: #fff;
+    
+}
+:-moz-placeholder{/*Mozilla Firefox 19+ */
+    color: #fff;
+}
+:-moz-input-placeholder{
+    color:#fff;
+}
+.msg-sucesso{
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: rgba(50,205,50,.3);
+    border: 1px solid rgb(31, 212, 31);
+    display: block;
+    color: rgb(10, 233, 10);
+}
+.msg-erro{
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: rgba(56, 6, 0, 0.3);
+    border: 1px solid rgb(110, 0, 0);
+    display: block;
+    color: rgb(207, 1, 1);
+}
