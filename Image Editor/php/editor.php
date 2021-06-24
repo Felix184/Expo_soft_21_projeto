@@ -36,6 +36,7 @@ Kaike Santos Coppola | número 10
 					<li><a href="../html/index.html" class="logo"><img src="../img/logoCavalo.jpg" width="45px" height="45px"></a></li> 
 					<li><a href="editor.php"><i class="fas fa-edit"></i> Editor</a></li>
 					<li><a href="../html/sobre.html"><i class="fas fa-users"></i> Quem somos</a></li>
+					<li><a href="sair.php"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -102,9 +103,6 @@ Kaike Santos Coppola | número 10
 
 		</main>
 
-		<div class="btnSair">
-			<a href="sair.php">Sair</a>
-		</div>
 		<!-- Rodapé da página -->
 		<footer>
 			<p>&copy 2021 Fasthorse.editor - Escola tecnica Alcina Dantas Feijão</p>

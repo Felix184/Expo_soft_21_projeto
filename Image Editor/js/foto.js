@@ -222,11 +222,6 @@ class Foto {
      * Make Blur
      */
 	applyBlurFilter() {
-		/*this.applyFilter([
-            [.0625, .125, .0625],
-            [.125, .25, .125],
-            [.0625, .125, .0625]
-        ])*/
 		this.applyFilter([
 			[1/9, 1/9, 1/9],
 			[1/9, 1/9, 1/9],
@@ -297,7 +292,7 @@ class Foto {
 
 		var link = document.createElement('a');
 		link.download = this.selectedFileName + '-edited.png';
-		link.href = this.operationEditedCanvas.toDataURL()
+		link.href = this.operationEditedCanvas.toDataURL();
 		link.click();
 	}
 

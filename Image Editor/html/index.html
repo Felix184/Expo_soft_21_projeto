@@ -25,7 +25,7 @@ Kaike Santos Coppola | número :10
 					<li><a href="index.html" class="logo"><img src="../img/logoCavalo.jpg" width="45px" height="45px"></a></li> 
 					<li><a href="../php/Login.php"><i class="fas fa-edit"></i> Editor</a></li>
 					<li><a href="sobre.html"><i class="fas fa-users"></i> Quem somos</a></li>
-					<li><a href="../php/Login.php">Login</a></li>
+					<li><a href="../php/Login.php"><i class="fas fa-user"></i> Cadastro | Login</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -78,16 +78,13 @@ Kaike Santos Coppola | número :10
 	</body>
 	<script>
 
-		// Indice das imagens , irá variar de acordo com a imagem selecionada 
-		var slideIndex = 1; // Slideindex é uma variável global
+		var slideIndex = 1; 
 		showSlides(slideIndex);
 
-		//Recebe o parametro (n) que será 1 ou -1 de acordo com o botão que foi clicado
 		function plusSlides(n) {
 			showSlides(slideIndex += n); 
 		}
 
-		// Seleciona o slide atual 
 		function currentSlide(n) {
 			showSlides(slideIndex = n);
 		}
@@ -95,22 +92,14 @@ Kaike Santos Coppola | número :10
 		function showSlides(n) {
 			var i; 
 			var slides = document.getElementsByClassName("mySlides"); 
-			//chama a classe mySlides , onde está armazenado a quantidade de imagens (3)
+
 			if (n > slides.length) {slideIndex = 1}
-			//se (n) for maior que o tamanho máximo de slides , o indice retorna para 1
-			//Avança da ultima imagem para a primeira
 			if (n < 1) {slideIndex = slides.length} 
-			//se (n) for menor que 1 o indice recebe slides 
 
 			for (i = 0; i < slides.length; i++) {
-
 				slides[i].style.display = "none";
 			}
-			//Esconde as imagens 
-
 			slides[slideIndex-1].style.display = "block";
-			// Mantem uma imagem de acordo com o valor do slide Ex: slideindex=2 , ao clicar no botão próximo terá 2-1 , indo para a imagem de número 1
-
 		} 
 	</script>
 </html>
