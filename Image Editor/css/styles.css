@@ -212,8 +212,8 @@ footer p {
 }
 
 #descricao {
-    font-size: 18px;
-    pointer-events: none;
+    font-size: 16px;
+ pointer-events: none;
     float: left;
     margin-left: 10%;
     margin-top: 4%;
