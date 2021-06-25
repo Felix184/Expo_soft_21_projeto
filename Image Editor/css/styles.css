@@ -1,19 +1,29 @@
+/*----------------------------------------------------------------------------------------
+Nome do projeto: Fast Horse Editor                                                          
+Descrição: CSS do site Fast Horse Editor.
+Autores: 
+Matheus Felix Carlos | número: 16                                          Versão: 1.0                                             
+Alberto Veiga Potas |número: 1                                             Data:20/06/21          
+Hebert Victor | número: 8
+Kaike Santos Coppola | número :10
+-----------------------------------------------------------------------------------------*/
+
 /* ---------- Estilos Gerais ---------- */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: 0;
-    font-family: "Times New Roman", Times, serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: 0;
+	font-family: "Times New Roman", Times, serif;
 }
 
 .editor-container {
-    background-color: #535675;
+	background-color: #535675;
 }
 
 main {
-    height: 100vh;
+	height: 100vh;
 }
 
 
@@ -29,212 +39,425 @@ main {
 /* ---------- Header menu ---------- */
 
 header {
-    margin-bottom: 50px;
-    box-shadow: 0px 1px 8px #000;
+	margin-bottom: 50px;
+	box-shadow: 0px 1px 8px #000;
 }
 
 ul {
-    list-style: none;
-    overflow: hidden;
-    background-color: #1d1e29;
+	list-style: none;
+	overflow: hidden;
+	background-color: #1d1e29;
 }
 
 li {
-    float: left;
+	float: left;
 }
 
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 18px;
-    text-decoration: none;
-    font-size: 18px;
-    margin-left: 10px;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 18px;
+	text-decoration: none;
+	font-size: 18px;
+	margin-left: 10px;
 }
 
+.logo {
+	padding: 2px 0;
+	margin-left: 15px;
+}
+
+.logo img {
+	vertical-align: middle;
+}
+
+.logo:hover {
+	background-color: #1d1e29;
+}
 li a:hover {
-    background-color: black;
+	background-color: black;
 }
-
 
 /* ---------- Rodapé footer ---------- */
 
 footer {
-    bottom: 0%;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    background-color: #1d1e29;
-    color: white;
-    text-align: left;
-    padding: 10px;
-    font-size: 14px;
+	bottom: 0%;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+	background-color: #1d1e29;
+	color: white;
+	text-align: left;
+	padding: 10px;
+	font-size: 14px;
 }
-
 footer p {
-    text-align: center;
+	text-align: center;
 }
-
 
 /* ---------- Estilos do editor ---------- */
 
-.img-container {
-    display: block;
-    width: 60%;
-    height: 60%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border: 2px solid #1d1e29;
-    background-image: url(../img/default.jpg)
-}
-
-.image {
-    max-width: 100%;
-    max-height: 100%;
-}
-
 .file-upload-section {
-    margin: 0 auto;
-    font-weight: 400;
-    width: 15%;
-    color: white;
-    text-align: center;
-    background-color: #1d1e29;
-    cursor: pointer;
+	margin: 0 25% 0 0;
+	float: right;
+	font-weight: 400;
+	padding: 1vh 30px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	background-color: #1d1e29; 
+	cursor: pointer;
 }
-
+.file-upload-section:hover {
+	background-color: black;
+}
 #foto-file {
-    display: none;
+	display: none;
 }
-
+.img-container {
+	display: block;
+	width: 55%;
+	height: 55vh;
+	margin-top: 2vh;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 0;
+	text-align: center;
+	float: right;
+	background-image: linear-gradient(to bottom right, #303675, black);
+	box-shadow: 0px 1px 8px #000;
+}
+.image {
+	max-width: 100%;
+	max-height: 100%;
+}
+.btns-container {
+	background-color: #1d1e29;
+	margin: 0 5%;
+	width: 30%;
+	height: 62.5vh;
+	padding: 15px;
+	border: 1px solid black;
+}
+.lbl-editor {
+	color: white;
+	font-size: 25px;
+	font-weight: 400;
+	margin-top: 5%;
+	margin-bottom: 4%;
+}
+.aviso-lbl {
+	color: red;
+	display: inline;
+	font-size: 15px;
+}
+.lbl-sub {
+	font-size: 18px; 
+	margin: 4% 0 1.5% 0;
+}
+.lbl-1 {
+	margin-top: 0;
+	display: inline;
+}
+.btn-editor {
+	color: #1d1e29;
+	padding: 1vh 3%;
+	text-align: center;
+	cursor: pointer;
+	background-color: white;
+	font-size: 16px;
+	font-weight: 400;
+	margin-left: 8px;
+	border: 1px solid black;
+}
+.btn-editor:hover {
+	background-color: black;
+	color: white;
+}
+.first-btn {
+	margin-left: 0;
+}
+.slidecontainer {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5%;
+}
+.slidecontainer button {
+	margin-left: 0;
+	font-size: 10px;
+}
+.slider {
+	-webkit-appearance: none;  
+	appearance: none;
+	width: 100%; 
+	height: 20px; 
+	background: white; 
+	outline: none; 
+	opacity: 0.7; 
+	-webkit-transition: .2s; 
+	transition: opacity .2s;
+}
+.slider:hover {
+	opacity: 1; 
+}
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none; 
+	appearance: none;
+	width: 25px; 
+	height: 25px;
+	border-radius: 15%;
+	background: black; 
+	cursor: pointer; 
+}
+.slider::-moz-range-thumb {
+	width: 25px; 
+	height: 25px; 
+	background: #04AA6D; 
+	cursor: pointer; 
+}
+.btn-download-section {
+	display: flex;
+	margin-top: 5vh;
+}
 .btn-download {
-    display: block;
-    margin: 0 auto;
-    font-weight: 400;
-    width: 15%;
-    font-size: 18px;
-    color: white;
-    text-align: center;
-    background-color: #1d1e29;
-    cursor: pointer;
+	display: block;
+	margin: 0 31.5% 0 12%;
+	font-weight: 400;
+	padding: 12px 38px;
+	font-size: 18px;
+	color: white;
+	font-weight: 400;
+	text-align: center;
+	background-color: #1d1e29; 
+	cursor: pointer;
 }
-
+.save-btn {
+	margin: 0 1.5% 0 0;
+}
 .btn-download:hover {
-    background-color: black;
+	background-color: black;
 }
-
 
 /*---------------------- Pagina Quem somos (Alberto)---------------------- */
 
 #sobre_body {
-    background-color: #535675;
-    margin: 0%;
+	background-color: #535675;
+	margin: 0%;
 }
 
 #sobre_body h1 {
-    text-align: center;
-    color: whitesmoke;
-    font-size: 45px;
+	text-align: center;
+	color: whitesmoke;
+	font-size: 45px;
 }
 
 #txt_sobre {
-    color: whitesmoke;
-    font-size: 26px;
-    text-align: center;
+	color: whitesmoke;
+	font-size: 26px;
+	text-align: center;
 }
 
 #container_sobre {
-    width: 100%;
-    height: 100%;
-    padding: 0%;
-    display: inline-flex;
-    flex-wrap: nowrap;
-    box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 0%;
+	display: inline-flex;
+	flex-wrap: nowrap;
+	box-sizing: border-box;
 }
 
 #foto_sobre {
-    width: 315px;
-    height: 190px;
-    border-radius: 15% 15% 15% 15%;
-    margin: 0% auto;
-    box-shadow: 0px 3px 9px #000;
-    background-color: #1B1E42;
-    font-size: 28px;
-    color: whitesmoke;
-    padding: .5%;
+	width: 315px;
+	height: 190px;
+	border-radius: 15% 15% 15% 15%;
+	margin: 0% auto;
+	box-shadow: 0px 3px 9px #000;
+	background-color: #1B1E42;
+	font-size: 28px;
+	color: whitesmoke;
+	padding: .5%;
 }
 
 #foto_sobre :hover {
-    height: 190px;
-    border-radius: 15% 15% 15% 15%;
-    box-shadow: 2px 4px 12px #000;
-    background-color: #1B1E42;
-    color: whitesmoke;
-    transform: scaleX(1.1) scaleY(1.1);
-    /* aumentar botão ao passar em cima*/
-    font-size: 29px;
-    transition-duration: .2s;
+	height: 190px;
+	border-radius: 15% 15% 15% 15%;
+	box-shadow: 2px 4px 12px #000;
+	background-color: #1B1E42;
+	color: whitesmoke;
+	transform: scaleX(1.1) scaleY(1.1);
+	/* aumentar botão ao passar em cima*/
+	font-size: 29px;
+	transition-duration: .2s;
 }
 
 #foto_sobre :visited {
-    color: whitesmoke;
-    text-decoration: none;
+	color: whitesmoke;
+	text-decoration: none;
 }
 
 #foto_sobre :active {
-    color: none;
-    text-decoration: none;
-    border: solid #1d1e29;
-    border-radius: 15% 15% 15% 15%;
-    box-shadow: 2px 4px 12px grey;
+	color: whitesmoke;
+	text-decoration: none;
+	border: solid #1d1e29;
+	border-radius: 15% 15% 15% 15%;
+	box-shadow: 2px 4px 12px grey;
 }
 
 #foto_sobre :link {
-    color: whitesmoke;
-    text-decoration: none;
+	color: whitesmoke;
+	text-decoration: none;
 }
 
 #foto_1,
 #foto_2,
 #foto_3,
 #foto_4 {
-    float: left;
-    padding: 0%;
-    margin-inline: 5%;
-    height: 140px;
-    border-radius: 50%;
-    border: solid #1d1e29;
-    pointer-events: none;
-    /*desabilita ação de mousa em cima da imagem, somente na div*/
+	float: left;
+	padding: 0%;
+	margin-inline: 5%;
+	height: 140px;
+	border-radius: 50%;
+	border: solid #1d1e29;
+	pointer-events: none;
+	/*desabilita ação de mousa em cima da imagem, somente na div*/
 }
 
 #descricao {
-    font-size: 16px;
- pointer-events: none;
-    float: left;
-    margin-left: 10%;
-    margin-top: 4%;
+	font-size: 18px;
+	pointer-events: none;
+	float: left;
+	margin-left: 10%;
+	margin-top: 4%;
 }
 
 #nomes_sobre {
-    pointer-events: none;
-    float: left;
+	pointer-events: none;
+	float: left;
 }
 
 #logo_github {
-    pointer-events: none;
-    float: none;
-    border-radius: 45%;
-    margin-left: 4%;
-    padding: 0%;
+	pointer-events: none;
+	float: none;
+	border-radius: 45%;
+	margin-left: 4%;
+	padding: 0%;
 }
 
 #logo_github :hover {
-    transform: scaleX(1.1) scaleY(1.1);
+	transform: scaleX(1.1) scaleY(1.1);
 }
 
+/* ---------- Estilos da Home ---------- */
+
+.home-container {
+	background-color: #535675; 
+}
+.mySlides {
+	display: none
+}
+.home-container img {
+	vertical-align: middle;
+}
+.home-container h1{
+	margin-top: -25px;
+	text-align: center;
+	font-size: 25px;
+	color: white;
+}
+.home-container h2 {
+	margin-top: -20px;
+	text-align: center;
+	font-size: 18px;
+	color: white;
+}
+
+.home-container h3 {
+	margin-top: 2px;
+	text-align: center;
+	font-size: 20px;
+	color:crimson;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+	width: 980px;
+	height: 436px;
+	margin: auto;
+	position: relative;
+}
+
+/* Botão próximo e botão voltar */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 65%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+/* Posição do "botão-proximo" */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* Hover para os botões próximo e voltar */
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.8);
+}
+
+/* Texto tutorial */
+.tutorial-text {
+	color: #FFFFFF ;
+	font-size: 20px;
+	padding: 5px 12px;
+	position: absolute;
+	bottom: 15px;
+	bottom: 15px;
+	width: 100%;
+	text-align:center;
+}
+
+/* Numero text passos (1/5 etc) */
+.numero-do-passo {
+	color: #FFFFFF;
+	font-size: 20px;
+	padding: 15px 12px;
+	position: relative;
+	top: 0;
+}
+
+
+/* Animação Transparencia */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+@keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+	.prev, .next,.text {font-size: 14px}
+}
 
 /* -------------------- */
