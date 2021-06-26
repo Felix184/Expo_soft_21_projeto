@@ -1,6 +1,6 @@
 <!------------------------------------------------------------------------------------------------------
 Nome do projeto: Fast Horse Editor
-Descrição: .
+Descrição: php para encerrar a sessão do usuário.
 
 Autores:
 

@@ -384,8 +384,8 @@ footer p {
 .slideshow-container {
 	width: 980px;
 	height: 436px;
-	margin: auto;
-	position: relative;
+	margin: -56px 0 0 180px;
+	position: absolute;
 }
 
 /* Botão próximo e botão voltar */
@@ -421,10 +421,13 @@ footer p {
 	font-size: 20px;
 	padding: 5px 12px;
 	position: absolute;
-	bottom: 15px;
-	bottom: 15px;
+	bottom: 5px;
 	width: 100%;
 	text-align:center;
+}
+.ultimo_slide {
+	bottom: 0;
+	padding: 0 12px;
 }
 
 /* Numero text passos (1/5 etc) */

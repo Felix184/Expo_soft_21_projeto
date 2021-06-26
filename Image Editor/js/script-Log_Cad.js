@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------------------------------------------
 Nome do projeto: Fast Horse Editor
-Descrição: .
+Descrição: Script para ocultar e mostrar a senha das páginas de cadastro / login.
 
 Autores:
 
